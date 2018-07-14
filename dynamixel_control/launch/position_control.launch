@@ -4,7 +4,7 @@
 
 <arg name="scan_range"                 default="20"/>
 
-<arg name="profile_velocity"           default="200"/>
+<arg name="profile_velocity"           default="100"/>
 <arg name="profile_acceleration"       default="50"/>
 
 <param name="device_name"              value="$(arg device_name)"/>

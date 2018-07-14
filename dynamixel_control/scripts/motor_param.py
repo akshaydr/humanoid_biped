@@ -16,24 +16,20 @@ import rospy
 
 def constrain(mag, joint):
     if (joint == "flexion_left"):
-        max = 2700
-        min = 1300
+        max = 2700.0
+        min = 1300.0
 
     elif (joint == "knee_left"):
-        max = 3320
-        min = 800
+        max = 3320.0
+        min = 800.0
+
+    elif (joint == "rotation_left"):
+        max = 4090.0
+        min = 0.0
 
     if (mag < min):
-        return (mini)
+        return (min)
     elif (mag > max):
-        return (maxi)
-    else:
-        return mag
-
-def flexion_left(mag):
-    if (mag<1302):
-        return (mini)
-    elif (mag>2702):
-        return (maxi)
+        return (max)
     else:
         return mag
