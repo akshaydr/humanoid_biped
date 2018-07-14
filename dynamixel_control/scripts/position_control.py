@@ -2,6 +2,7 @@
 
 import rospy
 from dynamixel_workbench_msgs.srv import JointCommand
+from motor_param import *
 
 angle = JointCommand()
 
@@ -11,7 +12,7 @@ if __name__ == '__main__':
     angle_service = rospy.ServiceProxy('joint_command', JointCommand)
     while not rospy.is_shutdown():
         angle.unit = "raw"
-        angle.id = 12
+        angle.id = 2
         angle.goal_position = float(raw_input("Enter the angle:"))
-        angle_service('raw', 12, angle.goal_position)
+        angle_service('raw', 12, constrain(angle.goal_position, "flexion_left")
         rate.sleep()

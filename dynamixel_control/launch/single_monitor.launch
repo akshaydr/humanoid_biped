@@ -3,9 +3,9 @@
  <arg name="id"               default="1"/>
 
  <arg name="device_name"      default="/dev/ttyUSB0"/>
- <arg name="baud_rate"        default="57600"/>
+ <arg name="baud_rate"        default="1000000"/>
 
- <arg name="scan_range"       default="200"/>
+ <arg name="scan_range"       default="20"/>
 
  <param name="ping"             value="$(arg use_ping)"  type="bool"/>
  <param name="ping_id"          value="$(arg id)"/>
