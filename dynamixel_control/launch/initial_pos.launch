@@ -1,6 +1,7 @@
 <launch>
 
-  <node name="gait_generation" pkg="dynamixel_control" type="gait_generation.py" required="true" output="screen"/>
+  <node name="gait_generation" pkg="dynamixel_control" type="gait_generation_test.py" required="true" output="screen"/>
+  <!-- <node name="gait_generation" pkg="dynamixel_control" type="gait_generation.py" required="true" output="screen"/> -->
   <node name="motor_drive" pkg="dynamixel_control" type="motor_drive.py" required="true" output="screen"/>
 
 </launch>
