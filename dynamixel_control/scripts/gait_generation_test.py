@@ -23,44 +23,62 @@ if __name__ == '__main__':
     uppper_body_pub = rospy.Publisher('uppper_body_value', Float64, queue_size=10)
 
     rate = rospy.Rate(10) # 10hz
+    sleep(2)
+    abduction_left_pub.publish(2642.0)
+    rotation_left_pub.publish(3062.0)
+    flexion_left_pub.publish(1536.0)
+    knee_left_pub.publish(2050.0)
+
+    abduction_right_pub.publish(2621.0)
+    rotation_right_pub.publish(2040.0)
+    flexion_right_pub.publish(3054.0)
+    knee_right_pub.publish(2031.0)
+
+    mid_section_pub.publish(2012.0)
+    uppper_body_pub.publish(2015.0)
+    sleep(2)
 
     while not rospy.is_shutdown():
-        type = raw_input("Enter the motion gait type:")
-        if (type == "init"):
-            abduction_left_pub.publish(2642.0)
-            rotation_left_pub.publish(3062.0)
-            flexion_left_pub.publish(1536.0)
-            knee_left_pub.publish(2050.0)
+        # type = raw_input("Enter the motion gait type:")
+        # if (type == "init"):
+            # abduction_left_pub.publish(2642.0)
+            # rotation_left_pub.publish(3062.0)
+            # flexion_left_pub.publish(1536.0)
+            # knee_left_pub.publish(2050.0)
+            #
+            # abduction_right_pub.publish(2621.0)
+            # rotation_right_pub.publish(2040.0)
+            # flexion_right_pub.publish(3054.0)
+            # knee_right_pub.publish(2031.0)
+            #
+            # mid_section_pub.publish(2012.0)
+            # uppper_body_pub.publish(2015.0)
 
-            abduction_right_pub.publish(2621.0)
-            rotation_right_pub.publish(2040.0)
-            flexion_right_pub.publish(3054.0)
-            knee_right_pub.publish(2031.0)
+        # if (type == "move"):
+        sleep(1)
 
-            mid_section_pub.publish(2012.0)
-            uppper_body_pub.publish(2015.0)
+        abduction_left_pub.publish(2545.0)
+        rotation_left_pub.publish(3062.0)
+        flexion_left_pub.publish(2242.0)
+        knee_left_pub.publish(1164.0)
+        sleep(1)to
 
-        if (type == "move"):
-            abduction_left_pub.publish(2545.0)
-            rotation_left_pub.publish(3062.0)
-            flexion_left_pub.publish(2242.0)
-            knee_left_pub.publish(1164.0)
+        abduction_left_pub.publish(2642.0)
+        rotation_left_pub.publish(3062.0)
+        flexion_left_pub.publish(1536.0)
+        knee_left_pub.publish(2050.0)
+        sleep(1.5)
 
-            abduction_left_pub.publish(2642.0)
-            rotation_left_pub.publish(3062.0)
-            flexion_left_pub.publish(1536.0)
-            knee_left_pub.publish(2050.0)
-
-            sleep(2)
-
-            abduction_right_pub.publish(2621.0)
-            rotation_right_pub.publish(2040.0)
-            flexion_right_pub.publish(2281.0)
-            knee_right_pub.publish(2929.0)
+        abduction_right_pub.publish(2621.0)
+        rotation_right_pub.publish(2040.0)
+        flexion_right_pub.publish(2381.0)
+        knee_right_pub.publish(2929.0)
+        sleep(1)
 
 
-            abduction_right_pub.publish(2621.0)
-            rotation_right_pub.publish(2040.0)
-            flexion_right_pub.publish(3054.0)
-            knee_right_pub.publish(2031.0)
+        abduction_right_pub.publish(2621.0)
+        rotation_right_pub.publish(2040.0)
+        flexion_right_pub.publish(3054.0)
+        knee_right_pub.publish(2031.0)
+
         rate.sleep()
