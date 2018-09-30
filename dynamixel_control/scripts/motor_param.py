@@ -2,22 +2,14 @@
 
 import rospy
 
-# Maximum and minimum angles
-# rotation_left =
-# abduction_left =
-# flexion_left =
-#  knee_left =
-#  ankle_left =
+# Rotation = 1036 - 3036 (ID 1)
+# Abduction = 1500 - 2500 (ID 2)
+# Flexion = 1036 - 3036 (ID 3)
+# Knee = 550 - 2236 (ID 4)
+# Ankle Twist = 1500 - 2600 (ID 5)
+# Ankle = 1500 - 2500 (ID 6)
 
-# rotation_right = 1036 - 3036 (ID 1)
-# abduction_right = 1500 - 2500 (ID 2)
-# flexion_right = 1036 - 3036 (ID 3)
-# knee_right = 550 - 2236 (ID 4)
-# ankle__twist_right = 1500 - 2600 (ID 5)
-# ankle_right = 1500 - 2500 (ID 6)
-
-# mid_section = 1621 - 2296
-# body_section = 1149 - 2511
+# Invert ID's 2, 3
 
 def constrain(mag, joint):
 
@@ -28,10 +20,12 @@ def constrain(mag, joint):
     elif (joint == 2):
         min = 1500.0
         max = 2500.0
+        mag = invert(mag)
 
     elif (joint == 3):
         min = 1036.0
         max = 3036.0
+        mag = invert(mag)
 
     elif (joint == 4):
         min = 550.0
@@ -51,3 +45,8 @@ def constrain(mag, joint):
         return (max)
     else:
         return mag
+
+def invert(val):
+    mid = 2036
+    temp = mid - val
+    return (mid + temp)

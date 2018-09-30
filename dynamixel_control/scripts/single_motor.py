@@ -158,10 +158,8 @@ if __name__ == '__main__':
 while not rospy.is_shutdown():
     # print ("Knee_angle =", knee_angle_val, "Hip_angle =", hip_angle_val)
 
-    run_motor(DXL1_ID, constrain(hip_angle_val, 1))
-    run_motor(DXL2_ID, constrain(knee_angle_val, 2))
-    # run_motor(DXL3_ID, msg.data)
-    # run_motor(DXL4_ID, msg.data)
+    run_motor(DXL3_ID, constrain(hip_angle_val, DXL3_ID))
+    run_motor(DXL4_ID, constrain(knee_angle_val, DXL4_ID))
 
     rate.sleep()
 
