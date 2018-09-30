@@ -3,6 +3,7 @@ import os
 import rospy
 from time import sleep
 from std_msgs.msg import Float64
+from motor_param import *
 
 if os.name == 'nt':
     import msvcrt
@@ -35,10 +36,12 @@ LEN_PRO_PRESENT_POSITION    = 4
 PROTOCOL_VERSION            = 2.0               # See which protocol version is used in the Dynamixel
 
 # Default setting
-DXL1_ID                     = 7                # Dynamixel#1 ID : 1
-DXL2_ID                     = 8                # Dynamixel#1 ID : 1
-DXL3_ID                     = 9                 # Dynamixel#1 ID : 1
-DXL4_ID                     = 10                 # Dynamixel#1 ID : 1
+DXL1_ID                     = 1              # Dynamixel#1 ID : 1
+DXL2_ID                     = 2                # Dynamixel#1 ID : 1
+DXL3_ID                     = 3                 # Dynamixel#1 ID : 1
+DXL4_ID                     = 4                  # Dynamixel#1 ID : 1
+DXL5_ID                     = 5                  # Dynamixel#1 ID : 1
+DXL6_ID                     = 6                  # Dynamixel#1 ID : 1
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
 DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
@@ -58,8 +61,8 @@ packetHandler = PacketHandler(PROTOCOL_VERSION)
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, ADDR_PRO_GOAL_POSITION, LEN_PRO_GOAL_POSITION)
 groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION)
 
-hip_angle_val = 0.0
-knee_angle_val = 0.0
+hip_angle_val = 2036
+knee_angle_val = 2036
 
 # Open port
 if portHandler.openPort():
@@ -114,6 +117,15 @@ def run_motor(ID, data):
     groupSyncWrite.clearParam()
     # Clear syncwrite parameter storage
 
+def torque_diable(ID):
+    # Disable Dynamixel Torque
+    dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, ID, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE)
+    if dxl_comm_result != COMM_SUCCESS:
+        print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
+    elif dxl_error != 0:
+        print("%s" % packetHandler.getRxPacketError(dxl_error))
+
+
 def knee_angle_callback(msg):
     global knee_angle_val
     knee_angle_val = msg.data
@@ -127,36 +139,40 @@ if __name__ == '__main__':
     initialize_motor(DXL2_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL3_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL4_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL5_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL6_ID) #Enter Motor ID to enable torque and add parameter storage
 
     rospy.init_node('motor_drive', anonymous=True)
-    rospy.Subscriber("knee_angle", Float64, knee_angle_callback)
     rospy.Subscriber("hip_angle", Float64, hip_angle_callback)
+    rospy.Subscriber("knee_angle", Float64, knee_angle_callback)
+
+    run_motor(DXL1_ID, constrain(2036, 1))
+    run_motor(DXL2_ID, constrain(2036, 2))
+    run_motor(DXL3_ID, constrain(2036, 3))
+    run_motor(DXL4_ID, constrain(2036, 4))
+    run_motor(DXL5_ID, constrain(2036, 5))
+    run_motor(DXL6_ID, constrain(2036, 6))
 
     rate = rospy.Rate(60)
 
 while not rospy.is_shutdown():
-    print ("/n Knee_angle =")
-    print(knee_angle_val)
-    print ("Hip_angle =")
-    print(hip_angle_val)
+    # print ("Knee_angle =", knee_angle_val, "Hip_angle =", hip_angle_val)
 
-    run_motor(DXL1_ID, knee_angle_val)
-    run_motor(DXL2_ID, hip_angle_val)
+    run_motor(DXL1_ID, constrain(hip_angle_val, 1))
+    run_motor(DXL2_ID, constrain(knee_angle_val, 2))
     # run_motor(DXL3_ID, msg.data)
     # run_motor(DXL4_ID, msg.data)
 
     rate.sleep()
 
+    if (rospy.is_shutdown()):
+        torque_diable(DXL1_ID)
+        torque_diable(DXL2_ID)
+        torque_diable(DXL3_ID)
+        torque_diable(DXL4_ID)
+        torque_diable(DXL5_ID)
+        torque_diable(DXL6_ID)
+        print("Shutting down. Motor torque disabled.")
 
-# # Clear syncread parameter storage
-# groupSyncRead.clearParam()
-#
-# # Disable Dynamixel#1 Torque
-# dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(portHandler, DXL1_ID, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE)
-# if dxl_comm_result != COMM_SUCCESS:
-#     print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
-# elif dxl_error != 0:
-#     print("%s" % packetHandler.getRxPacketError(dxl_error))
-#
-# # Close port
-# portHandler.closePort()
+        portHandler.closePort()   # Close port
+        print("Port Closed")
