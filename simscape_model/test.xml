@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>u1_value
+</Name>
+		<xPCName>test/u1_value </xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>u1_value /Constant</xpcblkName>
+            <SLblockPath>test/u1_value /Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>test/u1_value </SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>u1_value /Look-Up Table1</xpcblkName>
+            <SLblockPath>test/u1_value /Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>test/u1_value </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>u1_value /Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>test/u1_value </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+      
+
+<block>
+   <blkName>Model Parameters</blkName>
+   <xpcblkName>Model Parameters</xpcblkName>
+   <SLblockPath>. </SLblockPath>
+   <isSrc>[0 1 1]</isSrc>
+   <parameter>
+      <paramName>u1</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>test</SubSystemName>
+   </parameter>
+</block>
+</Root>

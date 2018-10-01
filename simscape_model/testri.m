@@ -1,0 +1,4 @@
+function ri = testri
+
+ri = [];
+

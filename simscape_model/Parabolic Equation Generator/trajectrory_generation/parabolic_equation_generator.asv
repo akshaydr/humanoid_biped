@@ -1,0 +1,73 @@
+%% Inputs
+upper_leg_length = 20;
+lower_leg_length = 20;
+
+%time = (0:1:10);
+
+%% Trajectory parameters
+x_initial = 0;
+x_mid = 6;
+x_final = 12;
+y_initial = 0;
+y_peak = 12;
+y_final = 0;
+x_graph_offset = -(x_final + 1);
+y_graph_offset = 0;
+time = linspace(0,gaitPeriod,x_final + 1)';
+
+%% Parabolic Trajectory Generaion
+syms a b c;
+eqn1 = c == y_initial;
+eqn2 = y_peak == ((x_mid^2)*a + (x_mid*b) + c);
+eqn3 = y_final == ((x_final^2)*a + (x_final*b) + c);
+[A,B] = equationsToMatrix([eqn1, eqn2, eqn3], [c, b, a]);
+co_effs = linsolve(A,B);
+x = (x_graph_offset:1:-1);
+y = ((co_effs(3)*((x-x_graph_offset).^2)) + (co_effs(2)*(x-x_graph_offset)) + co_effs(1));
+
+
+%% Inverse Kinematics Joint angle Calculation
+x_offset = 0;
+y_offset = lower_leg_length + upper_leg_length - 4;
+
+t2_numerator = ((x-x_offset).^2 + (y-y_offset).^2 - upper_leg_length^2 - lower_leg_length^2);
+t2_denominator = (2 * upper_leg_length * lower_leg_length);
+t2 = acosd(t2_numerator./t2_denominator);
+
+t1_numerator = lower_leg_length * sind(t2);
+t1_denominator = upper_leg_length + (lower_leg_length * cosd(t2));
+t1 = atand((y-y_offset)./(x-x_offset)) - atand(t1_numerator./t1_denominator);
+
+%% Ankle Parameters
+t3 = 0 - (t1 - t1);
+
+%% Angle Conversion
+t1 = double(t1);
+t2 = double(t2);
+t3 = double(t3);
+theta_1 = degtorad(t1);
+theta_2 = degtorad(t2);
+theta_3 = degtorad(t3);
+theta_1 = flip(theta_1);
+theta_2 = flip(theta_2);
+theta_3 = flip(theta_3);
+
+%t1_length = length(t1);
+%for i = 1:t1_length
+%    if (t1(i) <= -90)
+%        t1(i) = -180 -t1(i);
+%    end
+%end
+%t2 = -t2;
+%t1 = -180 -t1;
+
+%% Graph Plot
+hold on 
+plot(x,y,'LineWidth',3,'color',[0,0.5,1]);   %Blue
+plot(x,t1,'LineWidth',3,'color',[1,0.5,0]);  %Orange
+plot(x,t2,'LineWidth',3,'color',[0,0.5,0]);  %Green
+plot(x,t3,'LineWidth',3,'color',[1,0.5,1]);  %Pink
+hold off
+
+theta_1 = theta_1 - 1.2673;
+theta_2 = theta_2 - 0.726
