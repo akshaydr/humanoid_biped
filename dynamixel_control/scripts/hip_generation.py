@@ -6,18 +6,20 @@ from time import sleep
 from std_msgs.msg import Float64
 
 pres_time = 0.0
-total_time = 4.0
+total_time = 1.0
 initial_angle = 180.4
 peak_angle = 1000.6
 
-# val = [2036, 22.8, 36.8, 42.8, 41.7, 34, 20.3, 0.8, -23.9, -53.8, -88.6, -128.2, -172.4, -221.3, -275.2, -334.3, -399.4, -471.5, -552.4, -645.4]
-# hip_val = [2036, 2059, 2073, 2079, 2078, 2070, 2056, 2037, 2012, 1982, 1947, 1908, 1863, 1815, 1761, 1702, 1637, 1565, 1484, 1391]
+hip_val =   [2141, 2187, 2228, 2263, 2295, 2324, 2350, 2373, 2394, 2412, 2427, 2440, 2450, 2458, 2462, 2463, 2461, 2455, 2445, 2431, 2431, 2420, 2408, 2396, 2384, 2371, 2358, 2344, 2330, 2315, 2300, 2285, 2269, 2252, 2235, 2217, 2199, 2181, 2161, 2141]
+knee_val =  [2527, 2588, 2639, 2682, 2717, 2747, 2772, 2791, 2806, 2817, 2823, 2825, 2822, 2815, 2804, 2788, 2767, 2740, 2708, 2669, 2669, 2669, 2667, 2666, 2663, 2660, 2656, 2651, 2645, 2639, 2632, 2624, 2615, 2605, 2595, 2583, 2571, 2557, 2543, 2527]
+ankle_val = [1651, 1635, 1625, 1618, 1614, 1613, 1614, 1618, 1623, 1631, 1640, 1651, 1664, 1678, 1694, 1711, 1730, 1751, 1773, 1798, 1798, 1787, 1777, 1767, 1757, 1747, 1738, 1729, 1721, 1712, 1704, 1697, 1689, 1682, 1676, 1670, 1664, 1659, 1655, 1651]
 
-hip_val = [2793, 2815, 2829, 2835, 2834, 2826, 2813, 2793, 2768, 2738, 2704, 2664, 2620, 2571, 2517, 2458, 2393, 2321, 2240, 2147]
-knee_val = [2036, 1955, 1888, 1833, 1790, 1758, 1735, 1722, 1719, 1724, 1739, 1763, 1796, 1839, 1893, 1958, 2036, 2129, 2240, 2375]
-# knee_val = [720, 639, 573, 518, 475, 443, 420, 407, 403, 408, 423, 447, 480, 524, 577, 643, 721, 814, 925, 1060]
+# hip_val = [2036, 1800, 1500, 1800, 2036]
+# knee_val = [2036, 1800, 1500, 1800, 2036]
+# ankle_val = [2036, 2150, 2150, 2150, 2036]
 
 i = -1;
+j = 0
 
 def extend_sample(data, present_sample, new_sample):
     new_data = []
@@ -38,17 +40,23 @@ def extend_sample(data, present_sample, new_sample):
 
 if __name__ == '__main__':
     rospy.init_node('gait_generation', anonymous=True)
-    pub1 = rospy.Publisher('knee_angle', Float64, queue_size=10)
-    pub2 = rospy.Publisher('hip_angle', Float64, queue_size=10)
+    pub1 = rospy.Publisher('hip_angle', Float64, queue_size=10)
+    pub2 = rospy.Publisher('knee_angle', Float64, queue_size=10)
+    pub3 = rospy.Publisher('ankle_angle', Float64, queue_size=10)
 
-    hip_val = extend_sample(hip_val, 20, 20)
-    knee_val = extend_sample(knee_val, 20, 20)
+    hip_val = extend_sample(hip_val, len(hip_val), 15)
+    knee_val = extend_sample(knee_val, len(knee_val), 15)
+    ankle_val = extend_sample(ankle_val, len(ankle_val), 15)
     # print len(hip_val)
-
-while (pres_time < total_time):
-    pres_time += total_time/len(hip_val)
-    print (hip_val[i])
-    pub1.publish(hip_val[i])
-    pub2.publish(knee_val[i])
-    i += 1
-    sleep(total_time/len(hip_val))
+while (j < 5):
+    while (pres_time < total_time):
+        pres_time += total_time/len(hip_val)
+        print (hip_val[i])
+        pub1.publish(hip_val[i])
+        pub2.publish(knee_val[i])
+        pub3.publish(ankle_val[i])
+        i += 1
+        sleep(total_time/len(hip_val))
+    i = -1
+    pres_time = 0.0
+    j += 1

@@ -1,12 +1,16 @@
+%% Initialize
+run("robotParameters.m");
+run("Robot_leg_DataFile.m");
+
 %% Inputs
 upper_leg_length = 13.5; %Upper Leg Length
-lower_leg_length = 17.8; %Lower Leg Length
+lower_leg_length = 21.5; %Lower Leg Length
 bend = 4;
 step_length = 10; %Step Length
 gait_period = 1.0; %Gait Period
 samples = 20; %
 
-simulation_time = linspace(0,10, samples*2); 
+simulation_time = linspace(0,10, samples*2);
 
 %% Trajectory Parameters
 h = 0; %Parabola Transformation
@@ -19,7 +23,7 @@ u1 = linspace(0, 10, samples*2);
 x = linspace(h, h+step_length, samples);
 x_first = linspace(h, h, samples);
 %y1 = trajectory_equation(step_length, samples);
-y1 = trajectory_equation(0,0,  step_length/2,step_length/4,  step_length,0, h,samples)
+y1 = trajectory_equation(0,0,  step_length/2,step_length/4,  step_length,0, h,samples);
 y2 = trajectory_equation(0,0,  step_length/2,0,  step_length,0, h,samples);
 y3 = trajectory_equation(0,0,  0.01,step_length/8,  0.02,step_length/4, h,samples);
 
@@ -73,8 +77,6 @@ right_abduction_3 = linspace(smiData.RevoluteJoint(5).Rz.Pos - t4, smiData.Revol
 right_abduction_4 = linspace(smiData.RevoluteJoint(5).Rz.Pos, smiData.RevoluteJoint(5).Rz.Pos, samples);
 right_abduction = [right_abduction_1 right_abduction_2 right_abduction_3 right_abduction_4];
 
-%right_knee_twist_first = [right_knee_twist_1 
-
 %right_hip = linspace(smiData.RevoluteJoint(2).Rz.Pos,smiData.RevoluteJoint(2).Rz.Pos, samples*2);
 %right_knee = linspace(smiData.RevoluteJoint(1).Rz.Pos,smiData.RevoluteJoint(1).Rz.Pos, samples*2);
 %right_ankle = linspace(smiData.RevoluteJoint(3).Rz.Pos,smiData.RevoluteJoint(3).Rz.Pos, samples*2);
@@ -112,18 +114,18 @@ right_theta_5 = deg2rad(right_abduction);
 right_theta_6 = deg2rad(right_t6);
 
 %% Left Leg joints
-hip = left_hip_1 + 270;
-hip = (4000/180)* hip;
-hip = hip + 2036;
+hip = (left_hip_1) + 270;
+hip = (4000/360)* hip;
+hip = int32(hip + 2036)
 left_hip_1 = left_hip_1 + smiData.RevoluteJoint(12).Rz.Pos + 270;
 left_hip_2 = left_hip_2 + smiData.RevoluteJoint(12).Rz.Pos + 270;
 left_hip_3 = left_hip_3 + smiData.RevoluteJoint(12).Rz.Pos + 270;
 left_hip = [flip(left_hip_1) left_hip_2];
 %left_hip = [left_hip_2 flip(left_hip_1)];
 
-kn = left_knee_1;
-kn = (4000/180)* kn ;
-kn = kn + 2036
+kn = (left_knee_1) * -1;
+kn = (4000/360)* kn ;
+kn = int32(kn +2036)
 left_knee_1 = smiData.RevoluteJoint(11).Rz.Pos - left_knee_1;
 left_knee_2 = smiData.RevoluteJoint(11).Rz.Pos - left_knee_2;
 left_knee_3 = smiData.RevoluteJoint(11).Rz.Pos - left_knee_3;
@@ -190,9 +192,9 @@ left_theta_5 = deg2rad(left_abduction);
 left_theta_6 = deg2rad(left_t6);
 
 %% Graph Plot
-hold on 
-%plot(x,left_hip,'LineWidth',3,'color',[1,0.5,0]);  %Orange
-%plot(x,right_knee,'LineWidth',3,'color',[0,0.5,0]);  %Green
+hold on
+plot(x,hip,'LineWidth',3,'color',[1,0.5,0]);  %Orange
+plot(x,kn,'LineWidth',3,'color',[0,0.5,0]);  %Green
 hold off
 
 %% Joint angle generation Function
