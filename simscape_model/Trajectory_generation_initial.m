@@ -49,21 +49,45 @@ t4 = atand(xg/(34.5 + yg));
 %yg = 9.2;
 %t4 = atand(xg/(34.5 + yg));
 %% Right Leg joints
+
+hip_1 = left_hip_1;
+hip_2 = left_hip_2;
+hip_merge = [hip_2 flip(hip_1)];
+hip = (4000/360)* hip_merge;
+hip = int32(hip + 2036);
+
 right_hip_1 = right_hip_1 + smiData.RevoluteJoint(2).Rz.Pos + 270;
 right_hip_2 = right_hip_2 + smiData.RevoluteJoint(2).Rz.Pos + 270;
 right_hip_3 = right_hip_3 + smiData.RevoluteJoint(2).Rz.Pos + 270;
-right_hip_first = [right_hip_3 flip(right_hip_3)];
 right_hip = [right_hip_2 flip(right_hip_1) ];
 %right_hip = [flip(right_hip_1) right_hip_2];
+
+knee_1 = left_knee_1;
+knee_2 = left_knee_2;
+knee_merge = [knee_2 flip(knee_1)];
+knee = (4000/360)* knee_merge;
+knee = int32(knee + 2036);
 
 right_knee_1 = smiData.RevoluteJoint(1).Rz.Pos - right_knee_1;
 right_knee_2 = smiData.RevoluteJoint(1).Rz.Pos - right_knee_2;
 right_knee_3 = smiData.RevoluteJoint(1).Rz.Pos - right_knee_3;
-right_knee_first = [right_knee_3 flip(right_knee_3)];
 right_knee = [right_knee_2 flip(right_knee_1) ];
 %right_knee = [flip(right_knee_1) right_knee_2];
 
+ankle = hip_merge - knee_merge;
+ankle = (4000/360)*ankle;
+ankle = int32(ankle + 2036);
+
 right_ankle = right_hip - right_knee + smiData.RevoluteJoint(3).Rz.Pos;
+
+disp("Hip_angle");
+print_function(hip)
+
+disp("Knee_angle");
+print_function(knee)
+
+disp("Ankle_angle");
+print_function(ankle)
 
 %right_hip = linspace(smiData.RevoluteJoint(2).Rz.Pos,smiData.RevoluteJoint(2).Rz.Pos, samples*2);
 %right_knee = linspace(smiData.RevoluteJoint(1).Rz.Pos,smiData.RevoluteJoint(1).Rz.Pos, samples*2);
@@ -116,14 +140,14 @@ ankle = hip_merge - knee_merge;
 ankle = (4000/360)*ankle;
 ankle = int32(ankle + 2036);
 
-disp("Hip_angle");
-print_function(hip)
-
-disp("Knee_angle");
-print_function(knee)
-
-disp("Ankle_angle");
-print_function(ankle)
+% disp("Hip_angle");
+% print_function(hip)
+% 
+% disp("Knee_angle");
+% print_function(knee)
+% 
+% disp("Ankle_angle");
+% print_function(ankle)
 
 %left_hip = linspace(smiData.RevoluteJoint(12).Rz.Pos,smiData.RevoluteJoint(12).Rz.Pos, samples*2);
 %left_knee = linspace(smiData.RevoluteJoint(11).Rz.Pos,smiData.RevoluteJoint(11).Rz.Pos, samples*2);
@@ -157,8 +181,7 @@ t1_denominator = l1 + (l2 * cosd(t2));
 t1 = atand((y-n)./(x-m)) - atand(t1_numerator./t1_denominator);
 t1((2*m) + 1 : samples) = t1((2*m) + 1 : samples) + 180;
 
-t2 = -t2;
-t1 = -180 -t1;
+
 end
 
 %% Trajectory function

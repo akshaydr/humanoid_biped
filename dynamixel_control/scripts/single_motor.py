@@ -42,6 +42,14 @@ DXL3_ID                     = 3                 # Dynamixel#1 ID : 1
 DXL4_ID                     = 4                  # Dynamixel#1 ID : 1
 DXL5_ID                     = 5                  # Dynamixel#1 ID : 1
 DXL6_ID                     = 6                  # Dynamixel#1 ID : 1
+
+DXL7_ID                     = 7              # Dynamixel#1 ID : 1
+DXL8_ID                     = 8                # Dynamixel#1 ID : 1
+DXL9_ID                     = 9                 # Dynamixel#1 ID : 1
+DXL10_ID                    = 10                  # Dynamixel#1 ID : 1
+DXL11_ID                    = 11                 # Dynamixel#1 ID : 1
+DXL12_ID                    = 12                 # Dynamixel#1 ID : 1
+
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
 DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
@@ -61,17 +69,26 @@ packetHandler = PacketHandler(PROTOCOL_VERSION)
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, ADDR_PRO_GOAL_POSITION, LEN_PRO_GOAL_POSITION)
 groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION)
 
-# hip_angle_val = 2036
-# knee_angle_val =  2036 #2669
+# hip_angle_val =   2036
+# knee_angle_val =  2036
 # ankle_angle_val = 2036
+#
+# hip_angle_left =   2036
+# knee_angle_left =  2036
+# ankle_angle_left = 2036
 
 # hip_val =   [2141, 2187, 2228, 2263, 2295, 2324, 2350, 2373, 2394, 2412, 2427, 2440, 2450, 2458, 2462, 2463, 2461, 2455, 2445, 2431, 2431, 2420, 2408, 2396, 2384, 2371, 2358, 2344, 2330, 2315, 2300, 2285, 2269, 2252, 2235, 2217, 2199, 2181, 2161, 2141]
 # knee_val =  [2527, 2588, 2639, 2682, 2717, 2747, 2772, 2791, 2806, 2817, 2823, 2825, 2822, 2815, 2804, 2788, 2767, 2740, 2708, 2669, 2669, 2669, 2667, 2666, 2663, 2660, 2656, 2651, 2645, 2639, 2632, 2624, 2615, 2605, 2595, 2583, 2571, 2557, 2543, 2527]
 # ankle_val = [1651, 1635, 1625, 1618, 1614, 1613, 1614, 1618, 1623, 1631, 1640, 1651, 1664, 1678, 1694, 1711, 1730, 1751, 1773, 1798, 1798, 1787, 1777, 1767, 1757, 1747, 1738, 1729, 1721, 1712, 1704, 1697, 1689, 1682, 1676, 1670, 1664, 1659, 1655, 1651]
 
-hip_angle_val =   2141
-knee_angle_val =  2527
-ankle_angle_val = 1651
+hip_angle_right =   2141
+knee_angle_right =  2527
+ankle_angle_right = 1651
+
+
+hip_angle_left =    2431
+knee_angle_left =   2669
+ankle_angle_left =  1798
 
 # Open port
 if portHandler.openPort():
@@ -135,17 +152,29 @@ def torque_diable(ID):
         print("%s" % packetHandler.getRxPacketError(dxl_error))
 
 
-def knee_angle_callback(msg):
-    global knee_angle_val
-    knee_angle_val = msg.data
+def knee_angle_r_callback(msg):
+    global knee_angle_right
+    knee_angle_right = msg.data
 
-def hip_angle_callback(msg):
-    global hip_angle_val
-    hip_angle_val = msg.data
+def hip_angle_r_callback(msg):
+    global hip_angle_right
+    hip_angle_right = msg.data
 
-def ankle_angle_callback(msg):
-    global ankle_angle_val
-    ankle_angle_val = msg.data
+def ankle_angle_r_callback(msg):
+    global ankle_angle_right
+    ankle_angle_right = msg.data
+
+def knee_angle_l_callback(msg):
+    global knee_angle_left
+    knee_angle_left = msg.data
+
+def hip_angle_l_callback(msg):
+    global hip_angle_left
+    hip_angle_left = msg.data
+
+def ankle_angle_l_callback(msg):
+    global ankle_angle_left
+    ankle_angle_left = msg.data
 
 if __name__ == '__main__':
     initialize_motor(DXL1_ID) #Enter Motor ID to enable torque and add parameter storage
@@ -155,27 +184,49 @@ if __name__ == '__main__':
     initialize_motor(DXL5_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL6_ID) #Enter Motor ID to enable torque and add parameter storage
 
-    rospy.init_node('motor_drive', anonymous=True)
-    rospy.Subscriber("hip_angle", Float64, hip_angle_callback)
-    rospy.Subscriber("knee_angle", Float64, knee_angle_callback)
-    rospy.Subscriber("ankle_angle", Float64, ankle_angle_callback)
+    initialize_motor(DXL7_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL8_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL9_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL10_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL11_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL12_ID) #Enter Motor ID to enable torque and add parameter storage
 
-    run_motor(DXL1_ID, constrain(2036, 1))
-    run_motor(DXL2_ID, constrain(2036, 2))
-    # run_motor(DXL3_ID, constrain(2036, 3))
-    # run_motor(DXL4_ID, constrain(2036, 4))
-    # run_motor(DXL5_ID, constrain(2036, 5))
-    run_motor(DXL6_ID, constrain(2036, 6))
+    rospy.init_node('motor_drive', anonymous=True)
+    rospy.Subscriber("hip_angle_r", Float64, hip_angle_r_callback)
+    rospy.Subscriber("knee_angle_r", Float64, knee_angle_r_callback)
+    rospy.Subscriber("ankle_angle_r", Float64, ankle_angle_r_callback)
+
+    rospy.Subscriber("hip_angle_l", Float64, hip_angle_l_callback)
+    rospy.Subscriber("knee_angle_l", Float64, knee_angle_l_callback)
+    rospy.Subscriber("ankle_angle_l", Float64, ankle_angle_l_callback)
+
+    run_motor(DXL1_ID, constrain(2036, DXL1_ID))
+    run_motor(DXL2_ID, constrain(2036, DXL2_ID))
+    run_motor(DXL3_ID, constrain(2036, DXL3_ID))
+    run_motor(DXL4_ID, constrain(2036, DXL4_ID))
+    run_motor(DXL5_ID, constrain(2036, DXL5_ID))
+    run_motor(DXL6_ID, constrain(2036, DXL6_ID))
+
+    run_motor(DXL7_ID, constrain(2036, DXL1_ID))
+    run_motor(DXL8_ID, constrain(2036, DXL2_ID))
+    run_motor(DXL9_ID, constrain(2036, DXL3_ID))
+    run_motor(DXL10_ID, constrain(2036, DXL4_ID))
+    run_motor(DXL11_ID, constrain(2036, DXL5_ID))
+    run_motor(DXL12_ID, constrain(2036, DXL6_ID))
 
     rate = rospy.Rate(100)
 
 while not rospy.is_shutdown():
     # print ("Hip_angle =", hip_angle_val, "Knee_angle =", knee_angle_val, "Ankle_angle =", ankle_angle_val)
 
-    run_motor(DXL3_ID, constrain(hip_angle_val, DXL3_ID))
-    run_motor(DXL4_ID, constrain(knee_angle_val, DXL4_ID))
-    run_motor(DXL5_ID, constrain(ankle_angle_val, DXL5_ID))
-    #
+    run_motor(DXL3_ID, constrain(hip_angle_right, DXL3_ID))
+    run_motor(DXL4_ID, constrain(knee_angle_right, DXL4_ID))
+    run_motor(DXL5_ID, constrain(ankle_angle_right, DXL5_ID))
+
+    run_motor(DXL9_ID, constrain(hip_angle_left, DXL9_ID))
+    run_motor(DXL10_ID, constrain(knee_angle_left, DXL10_ID))
+    run_motor(DXL11_ID, constrain(ankle_angle_left, DXL11_ID))
+
     rate.sleep()
 
     if (rospy.is_shutdown()):
@@ -185,6 +236,13 @@ while not rospy.is_shutdown():
         torque_diable(DXL4_ID)
         torque_diable(DXL5_ID)
         torque_diable(DXL6_ID)
+
+        torque_diable(DXL7_ID)
+        torque_diable(DXL8_ID)
+        torque_diable(DXL9_ID)
+        torque_diable(DXL10_ID)
+        torque_diable(DXL11_ID)
+        torque_diable(DXL12_ID)
         print("Shutting down. Motor torque disabled.")
 
         portHandler.closePort()   # Close port

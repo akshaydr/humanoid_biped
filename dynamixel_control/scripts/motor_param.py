@@ -37,8 +37,34 @@ def constrain(mag, joint):
         max = 2600.0
         mag = invert(mag)
 
-
     elif (joint == 6):
+        min = 1500.0
+        max = 2500.0
+
+    if (joint == 7):
+        min = 1036.0
+        max = 3036.0
+
+    elif (joint == 8):
+        min = 1500.0
+        max = 2500.0
+
+    elif (joint == 9):
+        min = 1036.0
+        max = 3036.0
+        mag = invert(mag)
+
+    elif (joint == 10):
+        min = 550.0
+        max = 2236.0
+        mag = invert(mag)
+
+    elif (joint == 11):
+        min = 1500.0
+        max = 2600.0
+        mag = invert(mag)
+
+    elif (joint == 12):
         min = 1500.0
         max = 2500.0
 
