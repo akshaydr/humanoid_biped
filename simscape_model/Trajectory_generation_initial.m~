@@ -102,7 +102,6 @@ rk_twist_4 = linspace(0, 0, samples);
 rk_twist = int32([rk_twist_1 rk_twist_2 rk_twist_3 rk_twist_4]);
 rk_twist = (4000/360)*rk_twist;
 rk_twist= int32(rk_twist + 2036);
-disp("RKT angle");
 print_function(rk_twist)
 
 right_knee_twist_1 = linspace(smiData.RevoluteJoint(8).Rz.Pos, +t4 + smiData.RevoluteJoint(8).Rz.Pos, 10);
@@ -111,15 +110,14 @@ right_knee_twist_3 = linspace(smiData.RevoluteJoint(8).Rz.Pos + t4, smiData.Revo
 right_knee_twist_4 = linspace(smiData.RevoluteJoint(8).Rz.Pos, smiData.RevoluteJoint(8).Rz.Pos, samples);
 right_knee_twist = [right_knee_twist_1 right_knee_twist_2 right_knee_twist_3 right_knee_twist_4];
 
-ra_1 = linspace(0, -t4, 10);
+ra_1 = linspace(0, t4, 10);
 ra_2 = linspace(0, 0, 0);
-ra_3 = linspace(-t4, 0, 10);
+ra_3 = linspace(t4, 0, 10);
 ra_4 = linspace(0, 0, samples);
-ra = int32([ra_1 ra_2 ra_3 ra_4]);
-ra = (4000/360)*ra;
-ra= int32(ra+ 2036);
-disp("RA angle");
-print_function(ra)
+rk_twist = int32([rk_twist_1 rk_twist_2 rk_twist_3 rk_twist_4]);
+rk_twist = (4000/360)*rk_twist;
+rk_twist= int32(rk_twist + 2036);
+print_function(rk_twist)
 
 right_abduction_1 = linspace(smiData.RevoluteJoint(5).Rz.Pos, -t4 + smiData.RevoluteJoint(5).Rz.Pos, 10);
 right_abduction_2 = linspace(smiData.RevoluteJoint(5).Rz.Pos, smiData.RevoluteJoint(5).Rz.Pos, 0);
@@ -190,11 +188,10 @@ ankle = int32(ankle + 2036);
 lk_twist_1 = linspace(0, 0, samples);
 lk_twist_2 = linspace(0, -t4, 10);
 lk_twist_3 = linspace(0, 0, 0);
-lk_twist_4 = linspace(-t4, 0, 10);
+lk_twist_4 = linspace(0 - t4, 0, 10);
 lk_twist = int32([lk_twist_1 lk_twist_2 lk_twist_3 lk_twist_4]);
 lk_twist = (4000/360)*lk_twist;
 lk_twist= int32(lk_twist + 2036);
-disp("LKT angle");
 print_function(lk_twist)
 
 left_knee_twist_1 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, samples);
@@ -202,16 +199,6 @@ left_knee_twist_2 = linspace(smiData.RevoluteJoint(6).Rz.Pos, -t4 + smiData.Revo
 left_knee_twist_3 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, 0);
 left_knee_twist_4 = linspace(smiData.RevoluteJoint(6).Rz.Pos - t4, smiData.RevoluteJoint(6).Rz.Pos, 10);
 left_knee_twist = [left_knee_twist_1 left_knee_twist_2 left_knee_twist_3 left_knee_twist_4];
-
-la_1 = linspace(0, 0, samples);
-la_2 = linspace(0, t4, 10);
-la_3 = linspace(0, 0, 0);
-la_4 = linspace(t4, 0, 10);
-la = int32([la_1 la_2 la_3 la_4]);
-la = (4000/360)*la;
-la= int32(la+ 2036);
-disp("LA angle");
-print_function(la)
 
 left_abduction_1 = linspace(smiData.RevoluteJoint(4).Rz.Pos, smiData.RevoluteJoint(4).Rz.Pos, samples);
 left_abduction_2 = linspace(smiData.RevoluteJoint(4).Rz.Pos, t4 + smiData.RevoluteJoint(4).Rz.Pos, 10);
@@ -230,8 +217,8 @@ left_theta_6 = deg2rad(left_t6);
 
 %% Graph Plot
 hold on
-% plot(x,lk_twist,'LineWidth',3,'color',[1,0.5,0]);  %Orange
-% plot(x,left_knee_twist,'LineWidth',3,'color',[0,0.5,0]);  %Green
+% plot(x,hip,'LineWidth',3,'color',[1,0.5,0]);  %Orange
+% plot(x,kn,'LineWidth',3,'color',[0,0.5,0]);  %Green
 hold off
 
 %% Joint angle generation Function
@@ -245,8 +232,7 @@ t1_denominator = l1 + (l2 * cosd(t2));
 t1 = atand((y-n)./(x-m)) - atand(t1_numerator./t1_denominator);
 t1((2*m) + 1 : samples) = t1((2*m) + 1 : samples) + 180;
 
-t2 = -t2;
-t1 = -180 -t1;
+
 end
 
 %% Trajectory function
