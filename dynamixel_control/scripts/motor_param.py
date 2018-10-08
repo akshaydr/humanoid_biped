@@ -20,7 +20,7 @@ def constrain(mag, joint):
     elif (joint == 2):
         min = 1500.0
         max = 2500.0
-        mag = invert(mag)
+        # mag = invert(mag)
 
     elif (joint == 3):
         min = 1036.0
@@ -40,7 +40,7 @@ def constrain(mag, joint):
     elif (joint == 6):
         min = 1500.0
         max = 2500.0
-        mag = invert(mag)
+        # mag = invert(mag)
 
     if (joint == 7):
         min = 1036.0
@@ -49,7 +49,7 @@ def constrain(mag, joint):
     elif (joint == 8):
         min = 1500.0
         max = 2500.0
-        mag = invert(mag)
+        # mag = invert(mag)
 
     elif (joint == 9):
         min = 1036.0
@@ -69,7 +69,7 @@ def constrain(mag, joint):
     elif (joint == 12):
         min = 1500.0
         max = 2500.0
-        mag = invert(mag)
+        # mag = invert(mag)
 
     if (mag < min):
         return (min)
