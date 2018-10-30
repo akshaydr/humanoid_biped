@@ -1,0 +1,93 @@
+<launch>
+  <arg name="manager"             default="realsense_ros_camera_manager"/>
+  <arg name="serial_no"           default="" />
+  <arg name="camera"              default="camera"/>
+  <arg name="depth"               default="depth" />
+  <arg name="rgb"                 default="color" />
+  <arg name="fisheye"             default="fisheye" />
+  <arg name="accel"               default="accel" />
+  <arg name="gyro"                default="gyro" />
+  <arg name="fisheye_width"       default="640" />
+  <arg name="fisheye_height"      default="480" />
+  <arg name="enable_fisheye"      default="false" />
+  <arg name="depth_width"         default="320" />
+  <arg name="depth_height"        default="240" />
+  <arg name="enable_depth"        default="true" />
+  <arg name="color_width"         default="640" />
+  <arg name="color_height"        default="480" />
+  <arg name="enable_color"        default="true" />
+  <arg name="fisheye_fps"         default="30" />
+  <arg name="depth_fps"           default="30" />
+  <arg name="color_fps"           default="30" />
+
+  <arg name="topic_camera_pose"       default="camera_pose"/>
+  <arg name="topic_reloc_pose"        default="reloc_pose"/>
+  <arg name="topic_pose2d"            default="pose2d" />
+  <arg name="topic_map"               default="map" />
+  <arg name="topic_tracking_accuracy" default="tracking_accuracy" />
+  <arg name="topic_odom"              default="odom" />
+  <arg name="publish_odometry"        default="false" />
+  <arg name="map_resolution"          default="0.05" />
+  <arg name="hoi_min"                 default="-0.5" />
+  <arg name="hoi_max"                 default="0.1" />
+  <arg name="doi_min"                 default="0.3" />
+  <arg name="doi_max"                 default="3.0" />
+  <arg name="load_relocalization_map" default=""/>
+  <arg name="load_occupancy_map"      default=""/>
+
+  <node pkg="nodelet" type="nodelet" name="$(arg manager)" args="manager" output="screen"/>
+  <node pkg="nodelet" type="nodelet" name="realsense_ros_$(arg camera)" args="load realsense_ros_camera/NodeletCamera $(arg manager) --no-bond" output="screen">
+    <param name="serial_no"                type="str"  value="$(arg serial_no)" />
+
+    <param name="fisheye_width"            type="int"  value="$(arg fisheye_width)" />
+    <param name="fisheye_height"           type="int"  value="$(arg fisheye_height)" />
+    <param name="enable_fisheye"           type="bool" value="$(arg enable_fisheye)" />
+    <param name="depth_width"              type="int"  value="$(arg depth_width)" />
+    <param name="depth_height"             type="int"  value="$(arg depth_height)" />
+    <param name="enable_depth"             type="bool" value="$(arg enable_depth)" />
+    <param name="color_width"              type="int"  value="$(arg color_width)" />
+    <param name="color_height"             type="int"  value="$(arg color_height)" />
+    <param name="enable_color"             type="bool" value="$(arg enable_color)" />
+    <param name="fisheye_fps"              type="int"  value="$(arg fisheye_fps)" />
+    <param name="depth_fps"                type="int"  value="$(arg depth_fps)" />
+    <param name="color_fps"                type="int"  value="$(arg color_fps)" />
+
+    <param name="depth_optical_frame_id"   type="str"  value="$(arg camera)_depth_optical_frame" />
+    <param name="color_optical_frame_id"   type="str"  value="$(arg camera)_rgb_optical_frame" />
+    <param name="ir_optical_frame_id"      type="str"  value="$(arg camera)_ir_optical_frame" />
+    <param name="ir2_optical_frame_id"     type="str"  value="$(arg camera)_ir2_optical_frame" />
+    <param name="fisheye_optical_frame_id" type="str"  value="$(arg camera)_fisheye_optical_frame" />
+    <param name="accel_optical_frame_id"   type="str"  value="$(arg camera)_accel_optical_frame" />
+    <param name="gyro_optical_frame_id"    type="str"  value="$(arg camera)_gyro_optical_frame" />
+  </node>
+
+  <node pkg="tf2_ros" type="static_transform_publisher"   name="map_to_odom"              args="0 0 0 0 0 0 1 map odom" />
+  <node pkg="tf2_ros" type="static_transform_publisher"   name="base_link_to_camera_link" args="0 0 0 0 0 0 1 base_link camera_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher"   name="odom_to_base_link"        args="0 0 0 0 0 0 1 odom base_link" />
+  <node pkg="rviz"    type="rviz"                         name="rviz_demo"                args="-d $(find realsense_ros_slam)/launch/demo_settings.rviz" />
+
+  <node pkg="nodelet" type="nodelet" name="realsense_ros_slam" args="load realsense_ros_slam/SNodeletSlam $(arg manager)" output="screen">
+      <rosparam file="$(find realsense_ros_slam)/launch/params.yaml" command="load"/>
+      <param name="topic_camera_pose"   type="str"  value="$(arg topic_camera_pose)" />
+      <param name="topic_reloc_pose"   type="str"  value="$(arg topic_reloc_pose)" />
+      <param name="topic_pose2d"   type="str"  value="$(arg topic_pose2d)" />
+      <param name="topic_map"   type="str"  value="$(arg topic_map)" />
+      <param name="topic_tracking_accuracy"   type="str"  value="$(arg topic_tracking_accuracy)" />
+      <param name="topic_odom"   type="str"  value="$(arg topic_odom)" />
+      <param name="publish_odometry"   type="bool"  value="$(arg publish_odometry)" />
+      <param name="map_resolution"   type="double"  value="$(arg map_resolution)" />
+      <param name="hoi_min"   type="double"  value="$(arg hoi_min)" />
+      <param name="hoi_max"   type="double"  value="$(arg hoi_max)" />
+      <param name="doi_min"   type="double"  value="$(arg doi_min)" />
+      <param name="doi_max"   type="double"  value="$(arg doi_max)" />
+      <param name="load_relocalization_map" value="$(arg load_relocalization_map)"/>
+      <param name="load_occupancy_map" value="$(arg load_occupancy_map)"/>
+  </node> -->
+   <!--launch-prefix="gdb -ex run --><!--args"/-->
+
+  <remap from="topic_camera_pose"         to="$(arg topic_camera_pose)" />
+  <remap from="topic_reloc_pose"          to="$(arg topic_reloc_pose)" />
+  <remap from="topic_pose2d"              to="$(arg topic_pose2d)" />
+  <remap from="topic_map"                 to="$(arg topic_map)" />
+  <remap from="topic_tracking_accuracy"   to="$(arg topic_tracking_accuracy)" />
+</launch>
