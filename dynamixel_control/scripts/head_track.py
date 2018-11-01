@@ -30,7 +30,7 @@ else:
 
 from dynamixel_sdk import *                    # Uses Dynamixel SDK library
 
-up_down_joint = 2150
+up_down_joint = 1936
 left_right_joint = 2036
 
 # Control table address
@@ -50,7 +50,7 @@ DXL13_ID                     = 13              # Dynamixel#1 ID : 1
 DXL14_ID                     = 14                # Dynamixel#1 ID : 1
 
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-DEVICENAME                  = '/dev/ttyUSB1'    # Check which port is being used on your controller
+DEVICENAME                  = '/dev/ttyUSB2'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 TORQUE_ENABLE               = 1                 # Value for enabling the torque

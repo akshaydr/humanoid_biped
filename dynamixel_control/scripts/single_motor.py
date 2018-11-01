@@ -53,7 +53,7 @@ DXL11_ID                    = 11                 # Dynamixel#1 ID : 1
 DXL12_ID                    = 12                 # Dynamixel#1 ID : 1
 
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
+DEVICENAME                  = '/dev/ttyUSB1'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 TORQUE_ENABLE               = 1                 # Value for enabling the torque
@@ -221,7 +221,7 @@ if __name__ == '__main__':
     rate = rospy.Rate(100)
 
 while not rospy.is_shutdown():
-    print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
+    # print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
 
     run_motor(DXL2_ID, constrain(abduction_right, DXL2_ID))
     run_motor(DXL3_ID, constrain(hip_right, DXL3_ID))
