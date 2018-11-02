@@ -62,7 +62,7 @@ DXL8_ID                     = 22
 DXL11_ID                    = 23
 DXL12_ID                    = 24
 BAUDRATE                    = 1000000
-DEVICENAME                  = "/dev/ttyUSB1".encode('utf-8')# Check which port is being used on your controller
+DEVICENAME                  = "/dev/ttyUSB0".encode('utf-8')# Check which port is being used on your controller
                                                             # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 TORQUE_ENABLE               = 1                             # Value for enabling the torque

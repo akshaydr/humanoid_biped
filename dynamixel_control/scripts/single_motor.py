@@ -53,7 +53,7 @@ DXL11_ID                    = 11                 # Dynamixel#1 ID : 1
 DXL12_ID                    = 12                 # Dynamixel#1 ID : 1
 
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-DEVICENAME                  = '/dev/ttyUSB1'    # Check which port is being used on your controller
+DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 TORQUE_ENABLE               = 1                 # Value for enabling the torque
@@ -71,17 +71,74 @@ packetHandler = PacketHandler(PROTOCOL_VERSION)
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, ADDR_PRO_GOAL_POSITION, LEN_PRO_GOAL_POSITION)
 groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION)
 
-abduction_right =   2036
-hip_right =         2141
-knee_right =        2527
-ankle_right =       1651
-ankle_twist_right = 2036
+abr_er = 0
+hr_er = 50
+kr_er = -100
+anr_er = 40
+atr_er = 0
 
-abduction_left =    2036
-hip_left =          2431
-knee_left =         2669
-ankle_left =        1798
-ankle_twist_left =  2036
+abl_er = 0
+hl_er = 50
+kl_er = -60
+anl_er = -40
+atl_er = -20
+
+abduction_right =   2048 + abr_er
+hip_right =         2141 + hr_er
+knee_right =        2527 + kr_er
+ankle_right =       1651 + anr_er
+ankle_twist_right = 2048 + atr_er
+
+abduction_left =    2048 + abl_er
+hip_left =          2431 + hl_er    #+
+knee_left =         2669 + kl_er   #-
+ankle_left =        1798 + anl_er
+ankle_twist_left =  2048 + atl_er
+#
+# abduction_right =   2048
+# hip_right =         2048
+# knee_right =        2048 - 100
+# ankle_right =       2048 - 100
+# ankle_twist_right = 2048
+#
+# abduction_left =    2048
+# hip_left =          2048
+# knee_left =         2048 - 60
+# ankle_left =        2048 - 40
+# ankle_twist_left =  2048 - 20
+
+# Blanced stance (Standing straight)
+# abduction_right =   2036
+# hip_right =         2036 + 50
+# knee_right =        2036 - 60
+# ankle_right =       2036
+# ankle_twist_right = 2036
+#
+# abduction_left =    2036
+# hip_left =          2036 + 50
+# knee_left =         2036 - 60
+# ankle_left =        2036
+# ankle_twist_left =  2036
+
+# Balanced stance (Standing bent)
+# abduction_right =   2048
+# hip_right =         2048 + 180
+# knee_right =        2048 + 310
+# ankle_right =       2048 - 250
+# ankle_twist_right = 2048
+#
+# abduction_left =    2048
+# hip_left =          2048 + 180
+# knee_left =         2048 + 310
+# ankle_left =        2048 - 250
+# ankle_twist_left =  2048
+
+print("R_Hip", (hip_right * 360)/4096)
+print("R_Knee", (knee_right * 360)/4096)
+print("R_Ankle", (ankle_right * 360)/4096)
+print("L_Hip",  (hip_left * 360)/4096)
+print("L_Knee", (knee_left * 360)/4096)
+print("L_Ankle", (ankle_left * 360)/4096)
 
 # Open port
 if portHandler.openPort():
@@ -145,36 +202,36 @@ def torque_diable(ID):
         print("%s" % packetHandler.getRxPacketError(dxl_error))
 
 def abduction_r_callback(msg):
-    global abduction_right
-    abduction_right = msg.data
+    global abduction_right, abr_er
+    abduction_right = msg.data + abr_er
 def knee_r_callback(msg):
-    global knee_right
-    knee_right = msg.data
+    global knee_right, kr_er
+    knee_right = msg.data + kr_er
 def hip_r_callback(msg):
-    global hip_right
-    hip_right = msg.data
+    global hip_right, hr_er
+    hip_right = msg.data + hr_er
 def ankle_r_callback(msg):
-    global ankle_right
-    ankle_right = msg.data
+    global ankle_right, anr_er
+    ankle_right = msg.data + anr_er
 def ankle_twist_r_callback(msg):
-    global ankle_twist_right
-    ankle_twist_right = msg.data
+    global ankle_twist_right, atr_er
+    ankle_twist_right = msg.data + atr_er
 
 def abduction_l_callback(msg):
-    global abduction_left
-    abduction_left = msg.data
+    global abduction_left, abl_er
+    abduction_left = msg.data + abl_er
 def hip_l_callback(msg):
-    global hip_left
-    hip_left = msg.data
+    global hip_left, hl_er
+    hip_left = msg.data + hl_er
 def knee_l_callback(msg):
-    global knee_left
-    knee_left = msg.data
+    global knee_left, kl_er
+    knee_left = msg.data + kl_er
 def ankle_l_callback(msg):
-    global ankle_left
-    ankle_left = msg.data
+    global ankle_left, anl_er
+    ankle_left = msg.data + anl_er
 def ankle_twist_l_callback(msg):
-    global ankle_twist_left
-    ankle_twist_left = msg.data
+    global ankle_twist_left, atl_er
+    ankle_twist_left = msg.data + atl_er
 
 if __name__ == '__main__':
     initialize_motor(DXL1_ID) #Enter Motor ID to enable torque and add parameter storage
@@ -238,19 +295,19 @@ while not rospy.is_shutdown():
     rate.sleep()
 
     if (rospy.is_shutdown()):
-        torque_diable(DXL1_ID)
-        torque_diable(DXL2_ID)
-        torque_diable(DXL3_ID)
-        torque_diable(DXL4_ID)
-        torque_diable(DXL5_ID)
-        torque_diable(DXL6_ID)
-
-        torque_diable(DXL7_ID)
-        torque_diable(DXL8_ID)
-        torque_diable(DXL9_ID)
-        torque_diable(DXL10_ID)
-        torque_diable(DXL11_ID)
-        torque_diable(DXL12_ID)
+        # torque_diable(DXL1_ID)
+        # torque_diable(DXL2_ID)
+        # torque_diable(DXL3_ID)
+        # torque_diable(DXL4_ID)
+        # torque_diable(DXL5_ID)
+        # torque_diable(DXL6_ID)
+        #
+        # torque_diable(DXL7_ID)
+        # torque_diable(DXL8_ID)
+        # torque_diable(DXL9_ID)
+        # torque_diable(DXL10_ID)
+        # torque_diable(DXL11_ID)
+        # torque_diable(DXL12_ID)
         print("Shutting down. Motor torque disabled.")
 
         portHandler.closePort()   # Close port
