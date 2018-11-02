@@ -9,6 +9,8 @@ import Tkinter as tk
 import rospy
 from std_msgs.msg import String
 import pyttsx3
+import rospy
+from time import sleep
 
 if os.name == 'nt':
     import msvcrt
@@ -25,8 +27,9 @@ else:
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
+             # Path setting
 
-os.sys.path.append('../dynamixel_functions_py')             # Path setting
+# os.sys.path.append('../dynamixel_functions_py')
 
 import dynamixel_functions as dynamixel                     # Uses Dynamixel SDK library
 
@@ -727,14 +730,6 @@ def motor(y):
 
         break
 
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
-	home()
+    rospy.init_node('handshake_program', anonymous=True)
+    home()

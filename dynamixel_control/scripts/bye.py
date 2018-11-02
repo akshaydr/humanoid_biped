@@ -26,7 +26,7 @@ else:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
 
-os.sys.path.append('../dynamixel_functions_py')             # Path setting
+# os.sys.path.append('../dynamixel_functions_py')             # Path setting
 
 import dynamixel_functions as dynamixel                     # Uses Dynamixel SDK library
 
@@ -745,4 +745,5 @@ def motor(y):
 
 
 if __name__ == '__main__':
-	home()
+    rospy.init_node('bye', anonymous=True)
+    home()
