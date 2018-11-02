@@ -172,14 +172,14 @@ ankle = hip_merge - knee_merge;
 ankle = (4000/360)*ankle;
 ankle = int32(ankle + 2036);
 
- disp("Hip_angle");
- print_function(hip)
- 
- disp("Knee_angle");
- print_function(knee)
- 
- disp("Ankle_angle");
- print_function(ankle)
+% disp("Hip_angle");
+% print_function(hip)
+% 
+% disp("Knee_angle");
+% print_function(knee)
+% 
+% disp("Ankle_angle");
+% print_function(ankle)
 
 %left_hip = linspace(smiData.RevoluteJoint(12).Rz.Pos,smiData.RevoluteJoint(12).Rz.Pos, samples*2);
 %left_knee = linspace(smiData.RevoluteJoint(11).Rz.Pos,smiData.RevoluteJoint(11).Rz.Pos, samples*2);
