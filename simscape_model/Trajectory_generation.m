@@ -1,6 +1,6 @@
 %% Initialize
 run("robotParameters.m");
-run("Robot_leg_DataFile.m");
+run("Robot_leg_2_DataFile.m");
 
 %% Inputs
 upper_leg_length = 13.5; %Upper Leg Length
