@@ -32,6 +32,10 @@ y3 = trajectory_equation(0,0,  0.01,step_length/8,  0.02,step_length/4, h,sample
 m = 0;
 n = upper_leg_length + lower_leg_length - bend;
 [right_hip_1, right_knee_1] = joint_angles(x, y1, upper_leg_length, lower_leg_length, m, n, samples);
+hold on
+plot(x,right_hip_1,'LineWidth',3,'color',[1,0.5,0]);  %Orange
+plot(x,right_knee_1,'LineWidth',3,'color',[0,0.5,0]);  %Green
+hold off
 [right_hip_2, right_knee_2] = joint_angles(x, y2, upper_leg_length, lower_leg_length, m, n, samples);
 [right_hip_3, right_knee_3] = joint_angles(x_first, y3, upper_leg_length, lower_leg_length, m, n, samples);
 
@@ -116,7 +120,7 @@ right_theta_6 = deg2rad(right_t6);
 %% Left Leg joints
 hip = (left_hip_1) + 270;
 hip = (4000/360)* hip;
-hip = int32(hip + 2036)
+hip = int32(hip + 2036);
 left_hip_1 = left_hip_1 + smiData.RevoluteJoint(12).Rz.Pos + 270;
 left_hip_2 = left_hip_2 + smiData.RevoluteJoint(12).Rz.Pos + 270;
 left_hip_3 = left_hip_3 + smiData.RevoluteJoint(12).Rz.Pos + 270;
@@ -125,7 +129,7 @@ left_hip = [flip(left_hip_1) left_hip_2];
 
 kn = (left_knee_1) * -1;
 kn = (4000/360)* kn ;
-kn = int32(kn +2036)
+kn = int32(kn +2036);
 left_knee_1 = smiData.RevoluteJoint(11).Rz.Pos - left_knee_1;
 left_knee_2 = smiData.RevoluteJoint(11).Rz.Pos - left_knee_2;
 left_knee_3 = smiData.RevoluteJoint(11).Rz.Pos - left_knee_3;
@@ -192,10 +196,10 @@ left_theta_5 = deg2rad(left_abduction);
 left_theta_6 = deg2rad(left_t6);
 
 %% Graph Plot
-hold on
-plot(x,hip,'LineWidth',3,'color',[1,0.5,0]);  %Orange
-plot(x,kn,'LineWidth',3,'color',[0,0.5,0]);  %Green
-hold off
+% hold on
+% plot(x,hip,'LineWidth',3,'color',[1,0.5,0]);  %Orange
+% plot(x,kn,'LineWidth',3,'color',[0,0.5,0]);  %Green
+% hold off
 
 %% Joint angle generation Function
 function [t1, t2] = joint_angles(x, y, l1, l2, m, n, samples)
