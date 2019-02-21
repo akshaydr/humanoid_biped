@@ -5,7 +5,6 @@ from time import sleep
 from std_msgs.msg import Float64
 from motor_param import *
 
-# Shifted repository to private
 
 if os.name == 'nt':
     import msvcrt
@@ -38,28 +37,16 @@ LEN_PRO_PRESENT_POSITION    = 4
 PROTOCOL_VERSION            = 2.0               # See which protocol version is used in the Dynamixel
 
 # Default setting
-DXL1_ID                     = 1              # Dynamixel#1 ID : 1
-DXL2_ID                     = 2                # Dynamixel#1 ID : 1
-DXL3_ID                     = 3                 # Dynamixel#1 ID : 1
-DXL4_ID                     = 4                  # Dynamixel#1 ID : 1
-DXL5_ID                     = 5                  # Dynamixel#1 ID : 1
-DXL6_ID                     = 6                  # Dynamixel#1 ID : 1
+DXL1_ID                     = 1                 # Dynamixel#1 ID : 1
 
-DXL7_ID                     = 7              # Dynamixel#1 ID : 1
-DXL8_ID                     = 8                # Dynamixel#1 ID : 1
-DXL9_ID                     = 9                 # Dynamixel#1 ID : 1
-DXL10_ID                    = 10                  # Dynamixel#1 ID : 1
-DXL11_ID                    = 11                 # Dynamixel#1 ID : 1
-DXL12_ID                    = 12                 # Dynamixel#1 ID : 1
-
-BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-DEVICENAME                  = '/dev/ttyUSB1'    # Check which port is being used on your controller
+BAUDRATE                    = 115200            # Dynamixel default baudrate : 57600
+DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 TORQUE_ENABLE               = 1                 # Value for enabling the torque
 TORQUE_DISABLE              = 0                 # Value for disabling the torque
-DXL_MINIMUM_POSITION_VALUE  = 100          # Dynamixel will rotate between this value
-DXL_MAXIMUM_POSITION_VALUE  = 4000            # and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
+DXL_MINIMUM_POSITION_VALUE  = 100               # Dynamixel will rotate between this value
+DXL_MAXIMUM_POSITION_VALUE  = 4000              # and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
 DXL_MOVING_STATUS_THRESHOLD = 20                # Dynamixel moving status threshold
 
 index = 0
@@ -71,17 +58,7 @@ packetHandler = PacketHandler(PROTOCOL_VERSION)
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, ADDR_PRO_GOAL_POSITION, LEN_PRO_GOAL_POSITION)
 groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION)
 
-abduction_right =   2036
-hip_right =         2141
-knee_right =        2527
-ankle_right =       1651
-ankle_twist_right = 2036
-
-abduction_left =    2036
-hip_left =          2431
-knee_left =         2669
-ankle_left =        1798
-ankle_twist_left =  2036
+raw_val =   2036
 
 # Open port
 if portHandler.openPort():
@@ -144,113 +121,26 @@ def torque_diable(ID):
     elif dxl_error != 0:
         print("%s" % packetHandler.getRxPacketError(dxl_error))
 
-def abduction_r_callback(msg):
-    global abduction_right
-    abduction_right = msg.data
-def knee_r_callback(msg):
-    global knee_right
-    knee_right = msg.data
-def hip_r_callback(msg):
-    global hip_right
-    hip_right = msg.data
-def ankle_r_callback(msg):
-    global ankle_right
-    ankle_right = msg.data
-def ankle_twist_r_callback(msg):
-    global ankle_twist_right
-    ankle_twist_right = msg.data
-
-def abduction_l_callback(msg):
-    global abduction_left
-    abduction_left = msg.data
-def hip_l_callback(msg):
-    global hip_left
-    hip_left = msg.data
-def knee_l_callback(msg):
-    global knee_left
-    knee_left = msg.data
-def ankle_l_callback(msg):
-    global ankle_left
-    ankle_left = msg.data
-def ankle_twist_l_callback(msg):
-    global ankle_twist_left
-    ankle_twist_left = msg.data
+def motor_callback(msg):
+    global raw_val
+    raw_val = msg.data
 
 if __name__ == '__main__':
     initialize_motor(DXL1_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL2_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL3_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL4_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL5_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL6_ID) #Enter Motor ID to enable torque and add parameter storage
-
-    initialize_motor(DXL7_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL8_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL9_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL10_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL11_ID) #Enter Motor ID to enable torque and add parameter storage
-    initialize_motor(DXL12_ID) #Enter Motor ID to enable torque and add parameter storage
 
     rospy.init_node('motor_drive', anonymous=True)
-    rospy.Subscriber("abduction_angle_r", Float64, abduction_r_callback)
-    rospy.Subscriber("hip_angle_r", Float64, hip_r_callback)
-    rospy.Subscriber("knee_angle_r", Float64, knee_r_callback)
-    rospy.Subscriber("ankle_angle_r", Float64, ankle_r_callback)
-    rospy.Subscriber("ankle_twist_angle_r", Float64, ankle_twist_r_callback)
+    rospy.Subscriber("motor_angle", Float64, motor_callback)
 
-    rospy.Subscriber("abduction_angle_l", Float64, abduction_l_callback)
-    rospy.Subscriber("hip_angle_l", Float64, hip_l_callback)
-    rospy.Subscriber("knee_angle_l", Float64, knee_l_callback)
-    rospy.Subscriber("ankle_angle_l", Float64, ankle_l_callback)
-    rospy.Subscriber("ankle_twist_angle_l", Float64, ankle_twist_l_callback)
-
-    run_motor(DXL1_ID, constrain(2036, DXL1_ID))
-    run_motor(DXL2_ID, constrain(2036, DXL2_ID))
-    run_motor(DXL3_ID, constrain(2036, DXL3_ID))
-    run_motor(DXL4_ID, constrain(2036, DXL4_ID))
-    run_motor(DXL5_ID, constrain(2036, DXL5_ID))
-    run_motor(DXL6_ID, constrain(2036, DXL6_ID))
-
-    run_motor(DXL7_ID, constrain(2036, DXL1_ID))
-    run_motor(DXL8_ID, constrain(2036, DXL2_ID))
-    run_motor(DXL9_ID, constrain(2036, DXL3_ID))
-    run_motor(DXL10_ID, constrain(2036, DXL4_ID))
-    run_motor(DXL11_ID, constrain(2036, DXL5_ID))
-    run_motor(DXL12_ID, constrain(2036, DXL6_ID))
-
+    run_motor(DXL1_ID, 2036)
     rate = rospy.Rate(100)
 
 while not rospy.is_shutdown():
-    # print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
-
-    run_motor(DXL2_ID, constrain(abduction_right, DXL2_ID))
-    run_motor(DXL3_ID, constrain(hip_right, DXL3_ID))
-    run_motor(DXL4_ID, constrain(knee_right, DXL4_ID))
-    run_motor(DXL5_ID, constrain(ankle_right, DXL5_ID))
-    run_motor(DXL6_ID, constrain(ankle_twist_right, DXL6_ID))
-
-    run_motor(DXL8_ID, constrain(abduction_left, DXL8_ID))
-    run_motor(DXL9_ID, constrain(hip_left, DXL9_ID))
-    run_motor(DXL10_ID, constrain(knee_left, DXL10_ID))
-    run_motor(DXL11_ID, constrain(ankle_left, DXL11_ID))
-    run_motor(DXL12_ID, constrain(ankle_twist_left, DXL12_ID))
-
+    print raw_val
+    run_motor(DXL1_ID, constrain(raw_val, DXL1_ID))
     rate.sleep()
 
     if (rospy.is_shutdown()):
         torque_diable(DXL1_ID)
-        torque_diable(DXL2_ID)
-        torque_diable(DXL3_ID)
-        torque_diable(DXL4_ID)
-        torque_diable(DXL5_ID)
-        torque_diable(DXL6_ID)
-
-        torque_diable(DXL7_ID)
-        torque_diable(DXL8_ID)
-        torque_diable(DXL9_ID)
-        torque_diable(DXL10_ID)
-        torque_diable(DXL11_ID)
-        torque_diable(DXL12_ID)
         print("Shutting down. Motor torque disabled.")
 
         portHandler.closePort()   # Close port

@@ -6,7 +6,7 @@ run("Robot_leg_2_DataFile.m");
 %% Inputs
 upper_leg_length = 15.0; %Upper Leg Length
 lower_leg_length = 13.5; %Lower Leg Length
-bend = 3;
+bend = 4;
 step_length = 10; %Step Length
 gait_period = 1.0; %Gait Period
 samples = 20; %
@@ -50,8 +50,8 @@ t4 = atand(xg/(34.5 + yg));
 %t4 = atand(xg/(34.5 + yg));
 %% Right Leg joints
 
-hip_1 = left_hip_1;
-hip_2 = left_hip_2;
+hip_1 = left_hip_1 + 270;
+hip_2 = left_hip_2 + 270;
 hip_merge = [hip_2 flip(hip_1)];
 hip = (4000/360)* hip_merge;
 hip = int32(hip + 2036);
@@ -62,8 +62,8 @@ right_hip_3 = right_hip_3 + smiData.RevoluteJoint(2).Rz.Pos + 270;
 right_hip = [right_hip_2 flip(right_hip_1) ];
 %right_hip = [flip(right_hip_1) right_hip_2];
 
-knee_1 = left_knee_1;
-knee_2 = left_knee_2;
+knee_1 = left_knee_1*-1;
+knee_2 = left_knee_2*-1;
 knee_merge = [knee_2 flip(knee_1)];
 knee = (4000/360)* knee_merge;
 knee = int32(knee + 2036);

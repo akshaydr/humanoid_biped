@@ -50,8 +50,8 @@ t4 = atand(xg/(34.5 + yg));
 %t4 = atand(xg/(34.5 + yg));
 %% Right Leg joints
 
-hip_1 = left_hip_1;
-hip_2 = left_hip_2;
+hip_1 = left_hip_1 + 270;
+hip_2 = left_hip_2 + 270;
 hip_merge = [hip_2 flip(hip_1)];
 hip = (4000/360)* hip_merge;
 hip = int32(hip + 2036);
@@ -62,8 +62,8 @@ right_hip_3 = right_hip_3 + smiData.RevoluteJoint(2).Rz.Pos + 270;
 right_hip = [right_hip_2 flip(right_hip_1) ];
 %right_hip = [flip(right_hip_1) right_hip_2];
 
-knee_1 = left_knee_1;
-knee_2 = left_knee_2;
+knee_1 = left_knee_1*-1;
+knee_2 = left_knee_2*-1;
 knee_merge = [knee_2 flip(knee_1)];
 knee = (4000/360)* knee_merge;
 knee = int32(knee + 2036);
@@ -80,14 +80,14 @@ ankle = int32(ankle + 2036);
 
 right_ankle = right_hip - right_knee + smiData.RevoluteJoint(3).Rz.Pos;
 
-% disp("Hip_angle");
-% print_function(hip)
-% 
-% disp("Knee_angle");
-% print_function(knee)
-% 
-% disp("Ankle_angle");
-% print_function(ankle)
+ disp("Hip_angle");
+ print_function(hip)
+ 
+ disp("Knee_angle");
+ print_function(knee)
+ 
+ disp("Ankle_angle");
+ print_function(ankle)
 
 %right_hip = linspace(smiData.RevoluteJoint(2).Rz.Pos,smiData.RevoluteJoint(2).Rz.Pos, samples*2);
 %right_knee = linspace(smiData.RevoluteJoint(1).Rz.Pos,smiData.RevoluteJoint(1).Rz.Pos, samples*2);
@@ -102,8 +102,6 @@ rk_twist_4 = linspace(0, 0, samples);
 rk_twist = int32([rk_twist_1 rk_twist_2 rk_twist_3 rk_twist_4]);
 rk_twist = (4000/360)*rk_twist;
 rk_twist= int32(rk_twist + 2036);
-disp("RKT angle");
-print_function(rk_twist)
 
 right_knee_twist_1 = linspace(smiData.RevoluteJoint(8).Rz.Pos, +t4 + smiData.RevoluteJoint(8).Rz.Pos, 10);
 right_knee_twist_2 = linspace(smiData.RevoluteJoint(8).Rz.Pos, smiData.RevoluteJoint(8).Rz.Pos, 0);
@@ -118,8 +116,6 @@ ra_4 = linspace(0, 0, samples);
 ra = int32([ra_1 ra_2 ra_3 ra_4]);
 ra = (4000/360)*ra;
 ra= int32(ra+ 2036);
-disp("RA angle");
-print_function(ra)
 
 right_abduction_1 = linspace(smiData.RevoluteJoint(5).Rz.Pos, -t4 + smiData.RevoluteJoint(5).Rz.Pos, 10);
 right_abduction_2 = linspace(smiData.RevoluteJoint(5).Rz.Pos, smiData.RevoluteJoint(5).Rz.Pos, 0);
@@ -194,8 +190,6 @@ lk_twist_4 = linspace(-t4, 0, 10);
 lk_twist = int32([lk_twist_1 lk_twist_2 lk_twist_3 lk_twist_4]);
 lk_twist = (4000/360)*lk_twist;
 lk_twist= int32(lk_twist + 2036);
-disp("LKT angle");
-print_function(lk_twist)
 
 left_knee_twist_1 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, samples);
 left_knee_twist_2 = linspace(smiData.RevoluteJoint(6).Rz.Pos, -t4 + smiData.RevoluteJoint(6).Rz.Pos, 10);
@@ -210,8 +204,6 @@ la_4 = linspace(t4, 0, 10);
 la = int32([la_1 la_2 la_3 la_4]);
 la = (4000/360)*la;
 la= int32(la+ 2036);
-disp("LA angle");
-print_function(la)
 
 left_abduction_1 = linspace(smiData.RevoluteJoint(4).Rz.Pos, smiData.RevoluteJoint(4).Rz.Pos, samples);
 left_abduction_2 = linspace(smiData.RevoluteJoint(4).Rz.Pos, t4 + smiData.RevoluteJoint(4).Rz.Pos, 10);
