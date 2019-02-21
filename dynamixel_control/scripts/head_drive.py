@@ -11,6 +11,8 @@ from realsense_ros_object.msg import *
 # Angle camera can cover is 50 degrees
 # In dynamixel 2450 - 1680
 
+# Up - Down maximum angles is 1850 - 2246
+
 
 if os.name == 'nt':
     import msvcrt
@@ -29,9 +31,11 @@ else:
         return ch
 
 from dynamixel_sdk import *                    # Uses Dynamixel SDK library
-
-up_down_joint = 1936
-left_right_joint = 2036
+# 1850
+up_down_joint = 2048
+left_right_joint = 2048
+previous_val = 0
+first_val = True
 
 # Control table address
 ADDR_PRO_TORQUE_ENABLE      = 64               # Control table address is different in Dynamixel model
@@ -50,7 +54,7 @@ DXL13_ID                     = 13              # Dynamixel#1 ID : 1
 DXL14_ID                     = 14                # Dynamixel#1 ID : 1
 
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
-DEVICENAME                  = '/dev/ttyUSB2'    # Check which port is being used on your controller
+DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
 TORQUE_ENABLE               = 1                 # Value for enabling the torque
@@ -129,14 +133,41 @@ def torque_diable(ID):
     elif dxl_error != 0:
         print("%s" % packetHandler.getRxPacketError(dxl_error))
 
+# def change_detect(value, change):
+#     global first_val, previous_val
+#     if (first_val == True):
+#         previous_val = value
+#         first_val = False
+#         return previous_val
+#
+#     print(value, previous_val, change)
+#
+#     if (value - previous_val >= change or value - previous_val <= -change):
+#         print ("previous_val")
+#         previous_val = value
+#         return value
+#     else:
+#         return previous_val
+#     # previous_val = left_right_joint
+
 def object_callback(msg):
+    global left_right_joint, lf_joint
     for i in range(len(msg.objects_vector)):
         # print(msg.objects_vector[i].object.object_name)
-        if (msg.objects_vector[i].object.object_name == "picture"):
+        if (msg.objects_vector[i].object.object_name == "cabinet"):
             # X = Left/Right, Y = Up/Down Z = Distance
             # X range =
             # print(msg.objects_vector[i].location.coordinates)
-            print(msg.objects_vector[i].object_bbox)
+            # print(msg.objects_vector[i].object_bbox.x)
+            if (msg.objects_vector[i].object_bbox.x == 0 or msg.objects_vector[i].object_bbox.y == 0):
+                left_right_joint = 2048
+            else:
+                # left_right_joint = (change_detect(msg.objects_vector[i].object_bbox.x, 300) + 1110) #1110
+                left_right_joint = (msg.objects_vector[i].object_bbox.x + 1110) #1110
+                up_down_joint = (msg.objects_vector[i].object_bbox.y + 1850) #1110
+            # print left_right_joint
+            # print(msg.objects_vector[i].object_bbox.y)
+
     # print (msg.objects_vector[2].object.object_name)
 
 if __name__ == '__main__':
@@ -146,16 +177,24 @@ if __name__ == '__main__':
     rospy.init_node('motor_drive', anonymous=True)
     rospy.Subscriber("/realsense/localized_tracked_objects", ObjectsInBoxes, object_callback)
 
-    run_motor(DXL13_ID, constrain(up_down_joint, DXL13_ID))
-    run_motor(DXL14_ID, constrain(left_right_joint, DXL14_ID))
+    # run_motor(DXL13_ID, constrain(up_down_joint, DXL13_ID))
+    # run_motor(DXL14_ID, constrain(left_right_joint, DXL14_ID))
 
     rate = rospy.Rate(100)
 
 while not rospy.is_shutdown():
     # print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
+    # 570 - 1350
+    # 1680 - 2450
 
-    # run_motor(DXL13_ID, constrain(abduction_right, DXL13_ID))
-    # run_motor(DXL14_ID, constrain(hip_right, DXL14_ID))
+    time.sleep(1)
+    if (first_val == True):
+        first_val = False
+        print(left_right_joint)
+        run_motor(DXL14_ID, constrain(left_right_joint , DXL14_ID))
+        run_motor(DXL13_ID, constrain(up_down_joint , DXL13_ID))
+
+    # run_motor(DXL14_ID, constrain(, DXL14_ID))
 
     rate.sleep()
 
