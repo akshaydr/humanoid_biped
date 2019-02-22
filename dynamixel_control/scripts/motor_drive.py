@@ -83,15 +83,15 @@ groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSIT
 # ankle_twist_left =  2036
 
 abduction_right =   2036
-hip_right =         2141
-knee_right =        2527
-ankle_right =       1651
+hip_right =         2431
+knee_right =        2669
+ankle_right =       1798
 ankle_twist_right = 2036
 
 abduction_left =    2036
-hip_left =          2431
-knee_left =         2669
-ankle_left =        1798
+hip_left =          2141
+knee_left =         2527
+ankle_left =        1651
 ankle_twist_left =  2036
 
 # Open port
@@ -229,7 +229,7 @@ if __name__ == '__main__':
     run_motor(DXL11_ID, constrain(2036, DXL5_ID))
     run_motor(DXL12_ID, constrain(2036, DXL6_ID))
 
-    rate = rospy.Rate(100)
+    rate = rospy.Rate(1000)
 
 while not rospy.is_shutdown():
     # print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
@@ -243,8 +243,11 @@ while not rospy.is_shutdown():
     run_motor(DXL8_ID, constrain(abduction_left, DXL8_ID))
     run_motor(DXL9_ID, constrain(hip_left, DXL9_ID))
     run_motor(DXL10_ID, constrain(knee_left, DXL10_ID))
+    # print ankle_left
     run_motor(DXL11_ID, constrain(ankle_left, DXL11_ID))
     run_motor(DXL12_ID, constrain(ankle_twist_left, DXL12_ID))
+
+    # print abduction_right, hip_right, knee_right, ankle_right, ankle_twist_right, abduction_left, hip_left, knee_left, ankle_left, ankle_twist_left
 
     rate.sleep()
 

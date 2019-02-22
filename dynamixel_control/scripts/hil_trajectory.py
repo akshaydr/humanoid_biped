@@ -9,8 +9,12 @@ from std_msgs.msg import Float64
 UDP_IP_ADDRESS = "192.168.2.101"
 UDP_PORT_NO = 8001
 
+UDP_IP = "192.168.7.3"
+UDP_PORT = 1234
+
 serverSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverSock.bind((UDP_IP_ADDRESS, UDP_PORT_NO))
+
 
 if __name__ == '__main__':
     rospy.init_node('gait_generation', anonymous=True)
@@ -28,7 +32,7 @@ if __name__ == '__main__':
     pub11 = rospy.Publisher('ankle_angle_l', Float64, queue_size=10)
     pub12 = rospy.Publisher('ankle_twist_angle_l', Float64, queue_size=10)
 
-    rate = rospy.Rate(100)
+    rate = rospy.Rate(1000)
 
 while not rospy.is_shutdown():
     data, addr = serverSock.recvfrom(1024)
@@ -37,6 +41,9 @@ while not rospy.is_shutdown():
     val = data.split(",")
     rotation_left, abduc_val_right, hip_val_right, knee_val_right, ankle_val_right, ankle_twist_right, rotation_left, abduc_val_left, hip_val_left,  knee_val_left, ankle_val_left, ankle_twist_left = data.split(",")
     print rotation_left, abduc_val_right, hip_val_right, knee_val_right, ankle_val_right, ankle_twist_right, rotation_left, abduc_val_left, hip_val_left,  knee_val_left, ankle_val_left, ankle_twist_left
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.sendto(data, (UDP_IP, UDP_PORT))
 
     rotation_right = float(rotation_left)
     abduc_val_right = float(abduc_val_right)
