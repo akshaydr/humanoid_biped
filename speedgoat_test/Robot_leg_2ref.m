@@ -1,0 +1,10 @@
+function sys=Robot_leg_2ref
+sys = [];
+sys.child = [];
+sys.NumDataTypes = 1; 
+sys.DataTypes = [];
+temp.EnumNames='';
+temp.EnumValues = [];
+temp.Name = '';
+sys.DataTypes = repmat(temp,1,1);
+sys.DataTypes(1).Name = 'real_T';

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>Baseboard
+Serial</Name>
+		<xPCName>dynamixel_control/Baseboard Serial</xPCName>
+				<SubSystem>
+		<Name>RS232 ISR</Name>
+		<xPCName>dynamixel_control/Baseboard Serial/RS232 ISR</xPCName>
+				<SubSystem>
+		<Name>Receive 1</Name>
+		<xPCName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 1</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Baseboard Serial/RS232 ISR/Receive 1/Constant</xpcblkName>
+            <SLblockPath>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 1/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FIFO write 1</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Receive 1/FIFO write 1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Read HW FIFO1</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Receive 1/Read HW FIFO1</xpcsigName>
+              <sigWidth>65</sigWidth>
+              <sigDim>[65, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Receive 2</Name>
+		<xPCName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 2</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Baseboard Serial/RS232 ISR/Receive 2/Constant</xpcblkName>
+            <SLblockPath>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 2/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 2</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FIFO write 2</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Receive 2/FIFO write 2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Read HW FIFO2</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Receive 2/Read HW FIFO2</xpcsigName>
+              <sigWidth>65</sigWidth>
+              <sigDim>[65, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Receive 2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Transmit 1</Name>
+		<xPCName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 1</xPCName>
+		
+		
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Baseboard Serial/RS232 ISR/Transmit 1/Constant1</xpcblkName>
+            <SLblockPath>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 1/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FIFO read 1/p1</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Transmit 1/FIFO read 1/p1</xpcsigName>
+              <sigWidth>61</sigWidth>
+              <sigDim>[61, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO read 1/p2</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Transmit 1/FIFO read 1/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Transmit 2</Name>
+		<xPCName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 2</xPCName>
+		
+		
+            <block>
+            <blkName>Constant2</blkName>
+            <xpcblkName>Baseboard Serial/RS232 ISR/Transmit 2/Constant2</xpcblkName>
+            <SLblockPath>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 2/Constant2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 2</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>FIFO read 2/p1</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Transmit 2/FIFO read 2/p1</xpcsigName>
+              <sigWidth>61</sigWidth>
+              <sigDim>[61, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO read 2/p2</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Transmit 2/FIFO read 2/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR/Transmit 2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+			  
+			  
+              <signal>
+              <sigName>Read Int Status FC1/p1</sigName>
+              <xpcsigName>Baseboard Serial/RS232 ISR/Read Int Status FC1/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial/RS232 ISR</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Setup1</blkName>
+            <xpcblkName>Baseboard Serial/Setup1</xpcblkName>
+            <SLblockPath>dynamixel_control/Baseboard Serial/Setup1</SLblockPath>
+            <isSrc>[0 0 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Setup2</blkName>
+            <xpcblkName>Baseboard Serial/Setup2</xpcblkName>
+            <SLblockPath>dynamixel_control/Baseboard Serial/Setup2</SLblockPath>
+            <isSrc>[0 0 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Rate Transition</sigName>
+              <xpcsigName>Baseboard Serial/Rate Transition</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Rate Transition1</sigName>
+              <xpcsigName>Baseboard Serial/Rate Transition1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Rate Transition2</sigName>
+              <xpcsigName>Baseboard Serial/Rate Transition2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Rate Transition3</sigName>
+              <xpcsigName>Baseboard Serial/Rate Transition3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO read 1</sigName>
+              <xpcsigName>Baseboard Serial/FIFO read 1</xpcsigName>
+              <sigWidth>2049</sigWidth>
+              <sigDim>[2049, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO read 2</sigName>
+              <xpcsigName>Baseboard Serial/FIFO read 2</xpcsigName>
+              <sigWidth>1025</sigWidth>
+              <sigDim>[1025, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO write 1/p1</sigName>
+              <xpcsigName>Baseboard Serial/FIFO write 1/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO write 1/p2</sigName>
+              <xpcsigName>Baseboard Serial/FIFO write 1/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO write 2/p1</sigName>
+              <xpcsigName>Baseboard Serial/FIFO write 2/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>FIFO write 2/p2</sigName>
+              <xpcsigName>Baseboard Serial/FIFO write 2/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control/Baseboard Serial</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+      
+            <block>
+            <blkName>Constant32</blkName>
+            <xpcblkName>Constant32</xpcblkName>
+            <SLblockPath>dynamixel_control/Constant32</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>ASCII Encode </blkName>
+            <xpcblkName>ASCII Encode </xpcblkName>
+            <SLblockPath>dynamixel_control/ASCII Encode </SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 15]</dim>  
+		  <SubSystemName>dynamixel_control</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>dynamixel_control</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Constant32</sigName>
+              <xpcsigName>Constant32</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>dynamixel_control</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>ASCII Encode </sigName>
+              <xpcsigName>ASCII Encode </xpcsigName>
+              <sigWidth>128</sigWidth>
+              <sigDim>[128, 1]</sigDim>
+			  <SubSystemName>dynamixel_control</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+</Root>

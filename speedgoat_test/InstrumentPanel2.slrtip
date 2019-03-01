@@ -1,0 +1,29 @@
+
+  <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InstrumentPanel2" children="Controls">
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider1" children="Controls">
+      <Property name="BindingSrcType">None</Property>
+      <Property name="BindingSrcPath">
+      </Property>
+      <Property name="TargetName">
+      </Property>
+      <Property name="BindingSrcObject" />
+      <Property name="Size">64, 203</Property>
+      <Property name="Location">372, 63</Property>
+      <Property name="Name">Slider1</Property>
+    </Object>
+    <Object type="MW.Instruments.Knob, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Knob1" children="Controls">
+      <Property name="BindingSrcPath">
+      </Property>
+      <Property name="TargetName">
+      </Property>
+      <Property name="BindingSrcType">None</Property>
+      <Property name="Body">
+        <Property name="Radius">41</Property>
+      </Property>
+      <Property name="Size">155, 121</Property>
+      <Property name="Location">64, 63</Property>
+      <Property name="Name">Knob1</Property>
+    </Object>
+    <Property name="BackColor">ControlLight</Property>
+    <Property name="ClientSize">1920, 1080</Property>
+  </Object>
