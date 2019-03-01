@@ -39,13 +39,13 @@ while not rospy.is_shutdown():
     data = data.translate(None, '\x00')
     print data
     val = data.split(",")
-    rotation_left, abduc_val_right, hip_val_right, knee_val_right, ankle_val_right, ankle_twist_right, rotation_left, abduc_val_left, hip_val_left,  knee_val_left, ankle_val_left, ankle_twist_left = data.split(",")
-    print rotation_left, abduc_val_right, hip_val_right, knee_val_right, ankle_val_right, ankle_twist_right, rotation_left, abduc_val_left, hip_val_left,  knee_val_left, ankle_val_left, ankle_twist_left
+    rotation_right, abduc_val_right, hip_val_right, knee_val_right, ankle_val_right, ankle_twist_right, rotation_left, abduc_val_left, hip_val_left,  knee_val_left, ankle_val_left, ankle_twist_left = data.split(",")
+    print rotation_right, abduc_val_right, hip_val_right, knee_val_right, ankle_val_right, ankle_twist_right, rotation_left, abduc_val_left, hip_val_left,  knee_val_left, ankle_val_left, ankle_twist_left
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.sendto(data, (UDP_IP, UDP_PORT))
 
-    rotation_right = float(rotation_left)
+    rotation_right = float(rotation_right)
     abduc_val_right = float(abduc_val_right)
     hip_val_right = float(hip_val_right)
     knee_val_right = float(knee_val_right)

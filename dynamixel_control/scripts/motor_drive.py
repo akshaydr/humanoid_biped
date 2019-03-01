@@ -82,16 +82,18 @@ groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSIT
 # ankle_left =        1798
 # ankle_twist_left =  2036
 
+rotation_right =    2036
 abduction_right =   2036
-hip_right =         2431
-knee_right =        2669
-ankle_right =       1798
+hip_right =         2407
+knee_right =        2636
+ankle_right =       1728
 ankle_twist_right = 2036
 
+rotation_left =     2036
 abduction_left =    2036
-hip_left =          2141
-knee_left =         2527
-ankle_left =        1651
+hip_left =          2135
+knee_left =         2395
+ankle_left =        1728
 ankle_twist_left =  2036
 
 # Open port
@@ -155,6 +157,10 @@ def torque_diable(ID):
     elif dxl_error != 0:
         print("%s" % packetHandler.getRxPacketError(dxl_error))
 
+
+def rotation_r_callback(msg):
+    global rotation_right
+    rotation_right = msg.data
 def abduction_r_callback(msg):
     global abduction_right
     abduction_right = msg.data
@@ -171,6 +177,9 @@ def ankle_twist_r_callback(msg):
     global ankle_twist_right
     ankle_twist_right = msg.data
 
+def rotation_l_callback(msg):
+    global rotation_left
+    rotation_left = msg.data
 def abduction_l_callback(msg):
     global abduction_left
     abduction_left = msg.data
@@ -202,13 +211,16 @@ if __name__ == '__main__':
     initialize_motor(DXL11_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL12_ID) #Enter Motor ID to enable torque and add parameter storage
 
+
     rospy.init_node('motor_drive', anonymous=True)
+    rospy.Subscriber("rotation_angle_r", Float64, rotation_r_callback)
     rospy.Subscriber("abduction_angle_r", Float64, abduction_r_callback)
     rospy.Subscriber("hip_angle_r", Float64, hip_r_callback)
     rospy.Subscriber("knee_angle_r", Float64, knee_r_callback)
     rospy.Subscriber("ankle_angle_r", Float64, ankle_r_callback)
     rospy.Subscriber("ankle_twist_angle_r", Float64, ankle_twist_r_callback)
 
+    rospy.Subscriber("rotation_angle_l", Float64, rotation_l_callback)
     rospy.Subscriber("abduction_angle_l", Float64, abduction_l_callback)
     rospy.Subscriber("hip_angle_l", Float64, hip_l_callback)
     rospy.Subscriber("knee_angle_l", Float64, knee_l_callback)
@@ -234,16 +246,17 @@ if __name__ == '__main__':
 while not rospy.is_shutdown():
     # print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
 
+    run_motor(DXL1_ID, constrain(rotation_right, DXL1_ID))
     run_motor(DXL2_ID, constrain(abduction_right, DXL2_ID))
     run_motor(DXL3_ID, constrain(hip_right, DXL3_ID))
     run_motor(DXL4_ID, constrain(knee_right, DXL4_ID))
     run_motor(DXL5_ID, constrain(ankle_right, DXL5_ID))
     run_motor(DXL6_ID, constrain(ankle_twist_right, DXL6_ID))
 
+    run_motor(DXL7_ID, constrain(rotation_left, DXL7_ID))
     run_motor(DXL8_ID, constrain(abduction_left, DXL8_ID))
     run_motor(DXL9_ID, constrain(hip_left, DXL9_ID))
     run_motor(DXL10_ID, constrain(knee_left, DXL10_ID))
-    # print ankle_left
     run_motor(DXL11_ID, constrain(ankle_left, DXL11_ID))
     run_motor(DXL12_ID, constrain(ankle_twist_left, DXL12_ID))
 
