@@ -1,13 +1,21 @@
 %% Initialize
-run("robotParameters.m");
 run("leg_model_DataFile.m");
 
+%% General parameters
+density = 1000;
+world_damping = 0.25;
+world_rot_damping = 0.25;
+
+motion_time_constant = 0.01; %0.025;
+height_plane = 0.025;
+init_height = 40.5;
+
 %% Inputs
-upper_leg_length = 13.0; %Upper Leg Length
-lower_leg_length = 25.0; %Lower Leg Length
-bend = 8;
-step_length = 20; %Step Length
-gait_period = 1.6; %Gait Period
+upper_leg_length = 13.2; %Upper Leg Length
+lower_leg_length = 15.8; %Lower Leg Length
+bend = 4;
+step_length = 10; %Step Length
+gait_period = 1.0; %Gait Period
 samples = 20; %
 
 simulation_time = linspace(0,10, samples*2);
@@ -23,8 +31,8 @@ u1 = linspace(0, 10, samples*2);
 x = linspace(h, h+step_length, samples);
 x_first = linspace(h, h, samples);
 %y1 = trajectory_equation(step_length, samples);
-y1 = trajectory_equation(0,-2.3,  step_length/2,6,  step_length,0, h,samples);
-y2 = trajectory_equation(0,-2.3,  step_length/2,0,  step_length,0, h,samples);
+y1 = trajectory_equation(0,0,  step_length/2,3,  step_length,0, h,samples);
+y2 = trajectory_equation(0,0,  step_length/2,0,  step_length,0, h,samples);
 y3 = trajectory_equation(0,0,  0.01,step_length/8,  0.02,step_length/4, h,samples);
 
 %% Inverse Kinematics Generaion
@@ -36,6 +44,7 @@ n = upper_leg_length + lower_leg_length - bend;
 
 [left_hip_1, left_knee_1] = joint_angles(x, y1, upper_leg_length, lower_leg_length, m, n, samples);
 [left_hip_2, left_knee_2] = joint_angles(x, y2, upper_leg_length, lower_leg_length, m, n, samples);
+
 %% CoM shift angle calculation
 xg = 10.72;
 yg = 9.2;
@@ -57,11 +66,13 @@ right_knee = [right_knee_2 flip(right_knee_1) ];
 
 right_ankle = - right_hip + right_knee + smiData.RevoluteJoint(9).Rz.Pos;
 
-right_ankle_twist_1 = linspace(smiData.RevoluteJoint(6).Rz.Pos, +t4 + smiData.RevoluteJoint(6).Rz.Pos, 10);
-right_ankle_twist_2 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, 0);
-right_ankle_twist_3 = linspace(smiData.RevoluteJoint(6).Rz.Pos + t4, smiData.RevoluteJoint(6).Rz.Pos, 10);
-right_ankle_twist_4 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, samples);
-right_ankle_twist = [right_ankle_twist_1 right_ankle_twist_2 right_ankle_twist_3 right_ankle_twist_4];
+%right_ankle_twist_1 = linspace(smiData.RevoluteJoint(6).Rz.Pos, +t4 + smiData.RevoluteJoint(6).Rz.Pos, 10);
+%right_ankle_twist_2 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, 0);
+%right_ankle_twist_3 = linspace(smiData.RevoluteJoint(6).Rz.Pos + t4, smiData.RevoluteJoint(6).Rz.Pos, 10);
+%right_ankle_twist_4 = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, samples);
+%right_ankle_twist = [right_ankle_twist_1 right_ankle_twist_2 right_ankle_twist_3 right_ankle_twist_4];
+
+right_ankle_twist = linspace(smiData.RevoluteJoint(6).Rz.Pos, smiData.RevoluteJoint(6).Rz.Pos, samples*2);
 
 right_abduction_1 = linspace(smiData.RevoluteJoint(11).Rz.Pos, -t4 + smiData.RevoluteJoint(11).Rz.Pos, 10);
 right_abduction_2 = linspace(smiData.RevoluteJoint(11).Rz.Pos, smiData.RevoluteJoint(11).Rz.Pos, 0);
@@ -69,6 +80,7 @@ right_abduction_3 = linspace(smiData.RevoluteJoint(11).Rz.Pos - t4, smiData.Revo
 right_abduction_4 = linspace(smiData.RevoluteJoint(11).Rz.Pos, smiData.RevoluteJoint(11).Rz.Pos, samples);
 right_abduction = [right_abduction_1 right_abduction_2 right_abduction_3 right_abduction_4];
 
+%right_abduction = linspace(smiData.RevoluteJoint(11).Rz.Pos, smiData.RevoluteJoint(11).Rz.Pos, samples*2);
 right_rotation = linspace(smiData.RevoluteJoint(12).Rz.Pos, smiData.RevoluteJoint(12).Rz.Pos, samples*2);
 
 %right_rotation_1 = linspace(smiData.RevoluteJoint(12).Rz.Pos, -tr + smiData.RevoluteJoint(12).Rz.Pos, 10);
@@ -95,11 +107,13 @@ left_knee = [flip(left_knee_1) left_knee_2];
 
 left_ankle = - left_hip - left_knee + smiData.RevoluteJoint(7).Rz.Pos;
 
-left_ankle_twist_1 = linspace(smiData.RevoluteJoint(1).Rz.Pos, smiData.RevoluteJoint(1).Rz.Pos, samples);
-left_ankle_twist_2 = linspace(smiData.RevoluteJoint(1).Rz.Pos, -t4 + smiData.RevoluteJoint(1).Rz.Pos, 10);
-left_ankle_twist_3 = linspace(smiData.RevoluteJoint(1).Rz.Pos, smiData.RevoluteJoint(1).Rz.Pos, 0);
-left_ankle_twist_4 = linspace(smiData.RevoluteJoint(1).Rz.Pos - t4, smiData.RevoluteJoint(1).Rz.Pos, 10);
-left_ankle_twist = [left_ankle_twist_1 left_ankle_twist_2 left_ankle_twist_3 left_ankle_twist_4];
+%left_ankle_twist_1 = linspace(smiData.RevoluteJoint(1).Rz.Pos, smiData.RevoluteJoint(1).Rz.Pos, samples);
+%left_ankle_twist_2 = linspace(smiData.RevoluteJoint(1).Rz.Pos, -t4 + smiData.RevoluteJoint(1).Rz.Pos, 10);
+%left_ankle_twist_3 = linspace(smiData.RevoluteJoint(1).Rz.Pos, smiData.RevoluteJoint(1).Rz.Pos, 0);
+%left_ankle_twist_4 = linspace(smiData.RevoluteJoint(1).Rz.Pos - t4, smiData.RevoluteJoint(1).Rz.Pos, 10);
+% left_ankle_twist = [left_ankle_twist_1 left_ankle_twist_2 left_ankle_twist_3 left_ankle_twist_4];
+
+left_ankle_twist = linspace(smiData.RevoluteJoint(1).Rz.Pos, smiData.RevoluteJoint(1).Rz.Pos, samples*2);
 
 left_abduction_1 = linspace(smiData.RevoluteJoint(5).Rz.Pos, smiData.RevoluteJoint(5).Rz.Pos, samples);
 left_abduction_2 = linspace(smiData.RevoluteJoint(5).Rz.Pos, t4 + smiData.RevoluteJoint(5).Rz.Pos, 10);
@@ -107,6 +121,7 @@ left_abduction_3 = linspace(smiData.RevoluteJoint(5).Rz.Pos, smiData.RevoluteJoi
 left_abduction_4 = linspace(smiData.RevoluteJoint(5).Rz.Pos + t4, smiData.RevoluteJoint(5).Rz.Pos, 10);
 left_abduction = [left_abduction_1 left_abduction_2 left_abduction_3 left_abduction_4];
 
+%left_abduction = linspace(smiData.RevoluteJoint(5).Rz.Pos, smiData.RevoluteJoint(5).Rz.Pos, samples*2);
 left_rotation = linspace(smiData.RevoluteJoint(10).Rz.Pos,smiData.RevoluteJoint(10).Rz.Pos, samples*2);
 
 %left_rotation_1 = linspace(smiData.RevoluteJoint(10).Rz.Pos,smiData.RevoluteJoint(10).Rz.Pos, samples);
