@@ -48,7 +48,7 @@ n = upper_leg_length + lower_leg_length - bend;
 %% CoM shift angle calculation
 xg = 10.72;
 yg = 9.2;
-t4 = atand(xg/(20.0 + yg));
+t4 = atand(xg/(15.0 + yg));
 
 %xg = 7.72;
 %yg = 9.2;
@@ -106,9 +106,9 @@ right_ankle_twist = [right_ankle_twist_1 right_ankle_twist_2 right_ankle_twist_3
 
 right_rotation = linspace(smiData.RevoluteJoint(12).Rz.Pos, smiData.RevoluteJoint(12).Rz.Pos, samples*3);
 % right_abduction = linspace(right_abduction(1), right_abduction(1), samples*2);
-right_hip = linspace(right_hip(1), right_hip(1), samples*3);
-right_knee = linspace(right_knee(1), right_knee(1), samples*3);
-right_ankle = linspace(right_ankle(1), right_ankle(1), samples*3);
+% % right_hip = linspace(right_hip(1), right_hip(1), samples*4);
+% % right_knee = linspace(right_knee(1), right_knee(1), samples*4);
+% % right_ankle = linspace(right_ankle(1), right_ankle(1), samples*4);
 % right_ankle_twist = linspace(right_ankle_twist(1), right_ankle_twist(1), samples*2);
 
 right_theta_1 = deg2rad(right_hip);
@@ -168,9 +168,9 @@ left_ankle_twist = [left_ankle_twist_1 left_ankle_twist_2 left_ankle_twist_3 lef
 
 left_rotation = linspace(smiData.RevoluteJoint(10).Rz.Pos,smiData.RevoluteJoint(10).Rz.Pos, samples*3);
 % left_abduction = linspace(left_abduction(1), left_abduction(1), samples*2);
-left_hip = linspace(left_hip(1), left_hip(1), samples*3);
-left_knee = linspace(left_knee(1), left_knee(1), samples*3);
-left_ankle = linspace(left_ankle(1), left_ankle(1), samples*3);
+% left_hip = linspace(left_hip(1), left_hip(1), samples*4);
+% left_knee = linspace(left_knee(1), left_knee(1), samples*4);
+% left_ankle = linspace(left_ankle(1), left_ankle(1), samples*4);
 % left_ankle_twist = linspace(smiData.RevoluteJoint(1).Rz.Pos, smiData.RevoluteJoint(1).Rz.Pos, samples*2);
 
 left_theta_1 = deg2rad(left_hip);
