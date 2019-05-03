@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1">
+  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="1df7fd17-aa8d-4721-856a-eee70af9b125">
+    <dataTransferInfos>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAAAAAABAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA</dataTransferInfos>
+    <hasBwsAccessed>true</hasBwsAccessed>
+    <hasBwsAccessedByAnyModel>true</hasBwsAccessedByAnyModel>
+    <inportSignalObjects>AAFJTQAAAAAOAAAAKAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAA=</inportSignalObjects>
+    <needAbsoluteTimeForNonLoggingPurpose>true</needAbsoluteTimeForNonLoggingPurpose>
+    <outportSignalObjects>AAFJTQAAAAAOAAAAKAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAA=</outportSignalObjects>
+    <timingAndTaskingRegistry></timingAndTaskingRegistry>
+    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="06b8d6b8-e0a5-411d-a953-e99533a74343"/>
+    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="3a820f44-568a-4853-a97e-00aabf7a433b"/>
+    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="1a657d6c-b4dc-468e-8519-e558cf60b420">
+      <compSimulinkFunctionCatalog>AAFJTQAAAAAOAAAA0AAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQAEQAAAAEAAAAiAAAAQ29tcEZ1bmN0aW9ucwAAAABDb21wU2VydmljZVBvcnRzAAAAAAAAAA4AAAAwAAAABgAAAAgAAAAGAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAkAAAAAAAAADgAAADAAAAAGAAAACAAAAAYAAAAAAAAABQAAAAgAAAAAAAAAAAAAAAEAAAAAAAAACQAAAAAAAAA=</compSimulinkFunctionCatalog>
+      <variantSimulinkFunctions type="ModelRefInfoRepo.VariantSimulinkFunctions" uuid="4260d0cc-ab7c-4a4e-a0d4-1bbe3ebdf0f7"/>
+    </simulinkFunctions>
+    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="9c82bc80-16f4-42c6-bca9-aada1e0e659c"/>
+    <unionTsContainedTs type="ModelRefInfoRepo.UnionTsContainedTsInfo" uuid="fb5ae08b-2f97-45de-bd69-d8b73c444d91"/>
+  </ModelRefInfoRepo.ModelRefInfoRoot>
+</MF0>

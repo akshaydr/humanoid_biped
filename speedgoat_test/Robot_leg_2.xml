@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>Robot</Name>
+		<xPCName>Robot_leg_2/Robot</xPCName>
+				<SubSystem>
+		<Name>Left_Abduction_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Left_Abduction_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Left_Abduction_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Abduction_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Left_Abduction_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Abduction_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Left_Abduction_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Left_Abduction_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Left_Abduction_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Left_Abduction_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Left_Abduction_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Left_Ankle Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Left_Ankle Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Left_Ankle Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Ankle Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Left_Ankle Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Ankle Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Left_Ankle Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Left_Ankle Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Left_Ankle Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Left_Ankle Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Left_Ankle Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Left_Ankle_Twist_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Left_Ankle_Twist_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Ankle_Twist_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Left_Ankle_Twist_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Ankle_Twist_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Left_Ankle_Twist_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Left_Ankle_Twist_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Left_Ankle_Twist_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Left_Ankle_Twist_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Left_Ankle_Twist_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Left_Hip_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Left_Hip_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Left_Hip_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Hip_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Left_Hip_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Hip_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Left_Hip_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Left_Hip_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Left_Hip_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Left_Hip_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Left_Hip_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Left_Knee_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Left_Knee_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Left_Knee_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Knee_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Left_Knee_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Knee_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Left_Knee_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Left_Knee_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Left_Knee_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Left_Knee_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Left_Knee_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Left_Rotation_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Left_Rotation_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Left_Rotation_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Rotation_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Left_Rotation_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Left_Rotation_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Left_Rotation_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Left_Rotation_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Left_Rotation_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Left_Rotation_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Left_Rotation_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Left_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Left_leg</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg</xPCName>
+				<SubSystem>
+		<Name>Simulink-PS
+Converter</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter1</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter1</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter1/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter2</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter2</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter2/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter3</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter3</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter3/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter4</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter4</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter4/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter5</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter5</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/Simulink-PS Converter5/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>left_abduction_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/left_abduction_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>left_ankle_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/left_ankle_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>left_flextion_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/left_flextion_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>left_knee_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/left_knee_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>left_rotation_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Left_leg/left_rotation_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_Abduction_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Right_Abduction_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Right_Abduction_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Abduction_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Right_Abduction_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Abduction_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Right_Abduction_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Right_Abduction_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Right_Abduction_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Right_Abduction_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Right_Abduction_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Abduction_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_Ankle_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Right_Ankle_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Right_Ankle_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Ankle_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Right_Ankle_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Ankle_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Right_Ankle_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Right_Ankle_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Right_Ankle_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Right_Ankle_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Right_Ankle_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_Ankle_Twist_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Right_Ankle_Twist_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Ankle_Twist_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Right_Ankle_Twist_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Ankle_Twist_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Right_Ankle_Twist_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Right_Ankle_Twist_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Right_Ankle_Twist_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Right_Ankle_Twist_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Right_Ankle_Twist_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Ankle_Twist_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_Hip_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Right_Hip_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Right_Hip_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Hip_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Right_Hip_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Hip_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Right_Hip_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Right_Hip_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Right_Hip_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Right_Hip_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Right_Hip_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Hip_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_Knee_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Right_Knee_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Right_Knee_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Knee_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Right_Knee_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Knee_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Right_Knee_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Right_Knee_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Right_Knee_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Right_Knee_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Right_Knee_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Knee_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_Rotation_Motion</Name>
+		<xPCName>Robot_leg_2/Robot/Right_Rotation_Motion</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Robot/Right_Rotation_Motion/Constant</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Rotation_Motion/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Look-Up Table1</blkName>
+            <xpcblkName>Robot/Right_Rotation_Motion/Look-Up Table1</xpcblkName>
+            <SLblockPath>Robot_leg_2/Robot/Right_Rotation_Motion/Look-Up Table1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>BreakpointsForDimension1</paramName>
+          <dim>[1, 40]</dim>  
+		  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Robot/Right_Rotation_Motion/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Robot/Right_Rotation_Motion/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Look-Up Table1</sigName>
+              <xpcsigName>Robot/Right_Rotation_Motion/Look-Up Table1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Math
+Function</sigName>
+              <xpcsigName>Robot/Right_Rotation_Motion/Math Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Robot/Right_Rotation_Motion/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Robot/Right_Rotation_Motion</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Right_leg</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg</xPCName>
+				<SubSystem>
+		<Name>Scope </Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Scope </xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope 1</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Scope 1</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope 2</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Scope 2</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Scope 3</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Scope 3</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter1</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter1</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter1/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter2</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter2</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter2/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter3</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter3</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter3/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter4</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter4</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter4/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Simulink-PS
+Converter5</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter5</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/Simulink-PS Converter5/EVAL_KEY</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>right_abduction_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/right_abduction_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>right_ankle_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/right_ankle_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>right_flextion_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/right_flextion_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>right_knee_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/right_knee_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>right_rotation_RIGID</Name>
+		<xPCName>Robot_leg_2/Robot/Right_leg/right_rotation_RIGID</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Solver
+Configuration</Name>
+		<xPCName>Robot_leg_2/Solver Configuration</xPCName>
+				<SubSystem>
+		<Name>EVAL_KEY</Name>
+		<xPCName>Robot_leg_2/Solver Configuration/EVAL_KEY</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>INPUT_10_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_10_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_11_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_11_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_12_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_12_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_1_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_1_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_2_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_2_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_3_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_3_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_4_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_4_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_5_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_5_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_6_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_6_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_7_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_7_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_8_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_8_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>INPUT_9_1_1</sigName>
+              <xpcsigName>Solver Configuration/EVAL_KEY/INPUT_9_1_1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>Robot_leg_2/Solver Configuration/EVAL_KEY</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+
+      
+
+<block>
+   <blkName>Model Parameters</blkName>
+   <xpcblkName>Model Parameters</xpcblkName>
+   <SLblockPath>. </SLblockPath>
+   <isSrc>[0 1 1]</isSrc>
+   <parameter>
+      <paramName>left_theta_1</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>left_theta_2</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>left_theta_3</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>left_theta_4</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>left_theta_5</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>left_theta_6</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>right_theta_1</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>right_theta_2</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>right_theta_3</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>right_theta_4</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>right_theta_5</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+   <parameter>
+      <paramName>right_theta_6</paramName>
+          <dim>[1,40]</dim>
+		 <SubSystemName>Robot_leg_2</SubSystemName>
+   </parameter>
+</block>
+</Root>

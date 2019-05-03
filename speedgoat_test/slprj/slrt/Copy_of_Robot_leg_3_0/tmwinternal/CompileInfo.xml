@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1">
+  <ModelRefInfoRepo.ModelRefInfoRoot type="ModelRefInfoRepo.ModelRefInfoRoot" uuid="4c20de27-f946-43c5-9ceb-d17fc0e5e974">
+    <dataTransferInfos>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAAAAAABAAAAAQAAAAAAAAAFAAQAAQAAAAEAAAAAAAAA</dataTransferInfos>
+    <hasBwsAccessed>true</hasBwsAccessed>
+    <hasBwsAccessedByAnyModel>true</hasBwsAccessedByAnyModel>
+    <hasSignalLogging>true</hasSignalLogging>
+    <inportSignalObjects>AAFJTQAAAAAOAAAAKAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAEAAAAAAAAAAQAAAAAAAAA=</inportSignalObjects>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <isOrigOutportVirtualBus>false</isOrigOutportVirtualBus>
+    <needAbsoluteTimeForNonLoggingPurpose>true</needAbsoluteTimeForNonLoggingPurpose>
+    <outportSignalObjects>AAFJTQAAAAAOAAAAUAAAAAYAAAAIAAAAAQAAAAAAAAAFAAAACAAAAAEAAAAFAAAAAQAAAAAAAAAOAAAAAAAAAA4AAAAAAAAADgAAAAAAAAAOAAAAAAAAAA4AAAAAAAAA</outportSignalObjects>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="3e23b14e-5aa5-443a-95ff-5b4e0e5be04d">
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="d55faf40-b80d-4368-94ab-0f4c8a80224e"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="14baa147-2259-44b9-bd45-958759bbcc62">
+      <originalPortNumber>1</originalPortNumber>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="943673d5-cd27-4dd3-bd06-c6493db44bd6"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="98534983-3511-469d-875b-860e4ef3551e">
+      <originalPortNumber>2</originalPortNumber>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="074f861e-30b7-41f6-80f1-c87b07e55d25"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="bd97f234-acab-4c61-afd0-daccfd716ef9">
+      <originalPortNumber>3</originalPortNumber>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="556736bc-3734-499f-b595-9cb7821c5de0"/>
+    </outports>
+    <outports type="ModelRefInfoRepo.OutportInformation" uuid="d6e50649-0345-4095-b23d-9eb6997f15c2">
+      <originalPortNumber>4</originalPortNumber>
+      <sigNameToEMVCEMap type="ModelRefInfoRepo.SigNameEMVCEInfo" uuid="de0902e7-f273-4bf7-af5e-19ed6afdcfcd"/>
+    </outports>
+    <solverUpdateJacobianAtReset>true</solverUpdateJacobianAtReset>
+    <timingAndTaskingRegistry></timingAndTaskingRegistry>
+    <FMUBlockMap type="ModelRefInfoRepo.FMUBlockInfo" uuid="815fc98b-f7a9-4bd3-b216-5a326966f870"/>
+    <periodicEventPortUnsupportedBlockInfo type="ModelRefInfoRepo.PeriodicEventPortUnsupportedBlockInfo" uuid="f9fa5d8d-3a81-4729-9718-97313bf4417a"/>
+    <simulinkFunctions type="ModelRefInfoRepo.SimulinkFunctions" uuid="75d7eff6-56b9-45ae-aa51-7207768f649c">
+      <compSimulinkFunctionCatalog>AAFJTQAAAAAOAAAA0AAAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQAEQAAAAEAAAAiAAAAQ29tcEZ1bmN0aW9ucwAAAABDb21wU2VydmljZVBvcnRzAAAAAAAAAA4AAAAwAAAABgAAAAgAAAAGAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAkAAAAAAAAADgAAADAAAAAGAAAACAAAAAYAAAAAAAAABQAAAAgAAAAAAAAAAAAAAAEAAAAAAAAACQAAAAAAAAA=</compSimulinkFunctionCatalog>
+      <variantSimulinkFunctions type="ModelRefInfoRepo.VariantSimulinkFunctions" uuid="56827891-75a8-491a-ada3-abe97aeb4a47"/>
+    </simulinkFunctions>
+    <stateWriterToOwnerMap type="ModelRefInfoRepo.StateWriterInfo" uuid="1ddf9d45-2f1d-4947-af31-9fa38390c941"/>
+    <unionTsContainedTs type="ModelRefInfoRepo.UnionTsContainedTsInfo" uuid="6397b589-d2db-4843-9e1f-a45c17f28da1"/>
+  </ModelRefInfoRepo.ModelRefInfoRoot>
+</MF0>

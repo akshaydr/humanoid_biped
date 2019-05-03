@@ -1,0 +1,196 @@
+
+  <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="hil_tune_panel" children="Controls">
+    <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay6" children="Controls">
+      <Property name="BindingSrcType">Signal</Property>
+      <Property name="OutputValue">0</Property>
+      <Property name="BindingSrcPath">Add7</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="Size">106, 25</Property>
+      <Property name="Location">947, 718</Property>
+      <Property name="Name">NumericDisplay6</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay5" children="Controls">
+      <Property name="BindingSrcType">Signal</Property>
+      <Property name="OutputValue">0</Property>
+      <Property name="BindingSrcPath">Add8</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="Size">106, 25</Property>
+      <Property name="Location">835, 718</Property>
+      <Property name="Name">NumericDisplay5</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay4" children="Controls">
+      <Property name="BindingSrcType">Signal</Property>
+      <Property name="OutputValue">0</Property>
+      <Property name="BindingSrcPath">Add9</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="Size">106, 25</Property>
+      <Property name="Location">723, 718</Property>
+      <Property name="Name">NumericDisplay4</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay3" children="Controls">
+      <Property name="BindingSrcType">Signal</Property>
+      <Property name="OutputValue">0</Property>
+      <Property name="BindingSrcPath">Add10</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="Size">106, 25</Property>
+      <Property name="Location">611, 718</Property>
+      <Property name="Name">NumericDisplay3</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay2" children="Controls">
+      <Property name="BindingSrcType">Signal</Property>
+      <Property name="OutputValue">0</Property>
+      <Property name="BindingSrcPath">Add11</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="Size">106, 25</Property>
+      <Property name="Location">499, 718</Property>
+      <Property name="Name">NumericDisplay2</Property>
+    </Object>
+    <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay1" children="Controls">
+      <Property name="BindingSrcType">Signal</Property>
+      <Property name="OutputValue">0</Property>
+      <Property name="BindingSrcPath">Add12</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="Size">106, 25</Property>
+      <Property name="Location">387, 718</Property>
+      <Property name="Name">NumericDisplay1</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label8" children="Controls">
+      <Property name="TextAlign">MiddleCenter</Property>
+      <Property name="Text">Ankle Twist Tune</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Font">Segoe UI, 9pt, style=Bold</Property>
+      <Property name="Location">947, 746</Property>
+      <Property name="Name">Label8</Property>
+      <Property name="Size">106, 40</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label7" children="Controls">
+      <Property name="TextAlign">MiddleCenter</Property>
+      <Property name="Text">Ankle Tune</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Font">Segoe UI, 9pt, style=Bold</Property>
+      <Property name="Location">835, 746</Property>
+      <Property name="Name">Label7</Property>
+      <Property name="Size">106, 40</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label6" children="Controls">
+      <Property name="TextAlign">MiddleCenter</Property>
+      <Property name="Text">Knee Tune</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Font">Segoe UI, 9pt, style=Bold</Property>
+      <Property name="Location">723, 746</Property>
+      <Property name="Name">Label6</Property>
+      <Property name="Size">106, 40</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label5" children="Controls">
+      <Property name="TextAlign">MiddleCenter</Property>
+      <Property name="Text">Hip Tune</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Font">Segoe UI, 9pt, style=Bold</Property>
+      <Property name="Location">611, 746</Property>
+      <Property name="Name">Label5</Property>
+      <Property name="Size">106, 40</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label4" children="Controls">
+      <Property name="TextAlign">MiddleCenter</Property>
+      <Property name="Text">Abduction Tune</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Font">Segoe UI, 9pt, style=Bold</Property>
+      <Property name="Location">499, 746</Property>
+      <Property name="Name">Label4</Property>
+      <Property name="Size">106, 40</Property>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label1" children="Controls">
+      <Property name="TextAlign">MiddleCenter</Property>
+      <Property name="Text">Roatation Tune</Property>
+      <Property name="UseCompatibleTextRendering">True</Property>
+      <Property name="Font">Segoe UI, 9pt, style=Bold</Property>
+      <Property name="Location">387, 746</Property>
+      <Property name="Name">Label1</Property>
+      <Property name="Size">106, 40</Property>
+    </Object>
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider6" children="Controls">
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="BindingSrcPath">ankle_tune/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="ScaleRange">
+        <Property name="Min">-400</Property>
+        <Property name="Span">800</Property>
+      </Property>
+      <Property name="Size">69, 705</Property>
+      <Property name="Location">835, 12</Property>
+      <Property name="Name">Slider6</Property>
+    </Object>
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider5" children="Controls">
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="BindingSrcPath">ankle_twist_tune/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="ScaleRange">
+        <Property name="Min">-400</Property>
+        <Property name="Span">800</Property>
+      </Property>
+      <Property name="Size">69, 705</Property>
+      <Property name="Location">947, 12</Property>
+      <Property name="Name">Slider5</Property>
+    </Object>
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider4" children="Controls">
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="BindingSrcPath">abduction_tune/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="ScaleRange">
+        <Property name="Min">-400</Property>
+        <Property name="Span">800</Property>
+      </Property>
+      <Property name="Size">69, 705</Property>
+      <Property name="Location">499, 12</Property>
+      <Property name="Name">Slider4</Property>
+    </Object>
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider3" children="Controls">
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="BindingSrcPath">hip_tune/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="ScaleRange">
+        <Property name="Min">-400</Property>
+        <Property name="Span">800</Property>
+      </Property>
+      <Property name="Size">69, 705</Property>
+      <Property name="Location">611, 12</Property>
+      <Property name="Name">Slider3</Property>
+    </Object>
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider2" children="Controls">
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="BindingSrcPath">knee_tune/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="ScaleRange">
+        <Property name="Min">-400</Property>
+        <Property name="Span">800</Property>
+      </Property>
+      <Property name="Size">69, 705</Property>
+      <Property name="Location">723, 12</Property>
+      <Property name="Name">Slider2</Property>
+    </Object>
+    <Object type="MW.Instruments.Slider, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Slider1" children="Controls">
+      <Property name="BindingSrcType">Parameter</Property>
+      <Property name="BindingSrcPath">rotation_tune/Value</Property>
+      <Property name="TargetName">TargetPC1</Property>
+      <Property name="BindingSrcObject" />
+      <Property name="ScaleRange">
+        <Property name="Min">-400</Property>
+        <Property name="Span">800</Property>
+      </Property>
+      <Property name="Size">69, 705</Property>
+      <Property name="Location">387, 12</Property>
+      <Property name="Name">Slider1</Property>
+    </Object>
+    <Property name="ClientSize">1920, 1080</Property>
+  </Object>
