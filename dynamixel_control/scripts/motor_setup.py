@@ -51,6 +51,19 @@ DXL10_ID                    = 10                  # Dynamixel#1 ID : 1
 DXL11_ID                    = 11                 # Dynamixel#1 ID : 1
 DXL12_ID                    = 12                 # Dynamixel#1 ID : 1
 
+DXL15_ID                     = 15                             # Dynamixel ID: 1
+DXL16_ID                     = 16
+DXL17_ID                     = 17                            # Dynamixel ID: 1
+DXL18_ID                     = 18
+DXL19_ID                     = 19                            # Dynamixel ID: 1
+DXL20_ID                     = 20
+DXL21_ID                     = 21                            # Dynamixel ID: 1
+DXL22_ID                     = 22
+DXL23_ID                     = 23
+DXL24_ID                     = 24
+
+DXL25_ID                     = 25
+
 
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
 DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
@@ -125,6 +138,20 @@ ankle_twist_left =  2036
 # ankle_left =        1727
 # ankle_twist_left =  2150
 
+right_1 = 2036
+right_2 = 2036
+right_3 = 2036
+right_4 = 2036
+right_5 = 2036
+
+left_1 = 2036
+left_2 = 2036
+left_3 = 2036
+left_4 = 2036
+left_5 = 2036
+
+head = 2036
+
 # Open port
 if portHandler.openPort():
     print("Succeeded to open the port")
@@ -186,7 +213,7 @@ def torque_diable(ID):
     elif dxl_error != 0:
         print("%s" % packetHandler.getRxPacketError(dxl_error))
 
-
+# Right Leg
 def rotation_r_callback(msg):
     global rotation_right
     rotation_right = msg.data
@@ -206,6 +233,7 @@ def ankle_twist_r_callback(msg):
     global ankle_twist_right
     ankle_twist_right = msg.data
 
+# Left Leg
 def rotation_l_callback(msg):
     global rotation_left
     rotation_left = msg.data
@@ -225,6 +253,45 @@ def ankle_twist_l_callback(msg):
     global ankle_twist_left
     ankle_twist_left = msg.data
 
+# Right Hand
+def right_1_callback(msg):
+    global right_1
+    right_1 = msg.data
+def right_2_callback(msg):
+    global right_2
+    right_2 = msg.data
+def right_3_callback(msg):
+    global right_3
+    right_3 = msg.data
+def right_4_callback(msg):
+    global right_4
+    right_4 = msg.data
+def right_5_callback(msg):
+    global right_5
+    right_5 = msg.data
+
+# Left Hand
+def left_1_callback(msg):
+    global left_1
+    left_1 = msg.data
+def left_2_callback(msg):
+    global left_2
+    left_2 = msg.data
+def left_3_callback(msg):
+    global left_3
+    left_3 = msg.data
+def left_4_callback(msg):
+    global left_4
+    left_4 = msg.data
+def left_5_callback(msg):
+    global left_5
+    left_5 = msg.data
+
+# Head
+def head_callback(msg):
+    global head
+    head = msg.data
+
 if __name__ == '__main__':
     initialize_motor(DXL1_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL2_ID) #Enter Motor ID to enable torque and add parameter storage
@@ -240,7 +307,21 @@ if __name__ == '__main__':
     initialize_motor(DXL11_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL12_ID) #Enter Motor ID to enable torque and add parameter storage
 
-    rospy.init_node('motor_drive', anonymous=True)
+    initialize_motor(DXL15_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL16_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL17_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL18_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL19_ID) #Enter Motor ID to enable torque and add parameter storage
+
+    initialize_motor(DXL20_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL21_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL22_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL23_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL24_ID) #Enter Motor ID to enable torque and add parameter storage
+
+    initialize_motor(DXL25_ID) #Enter Motor ID to enable torque and add parameter storage
+
+    rospy.init_node('motor_setup', anonymous=True)
     rospy.Subscriber("rotation_angle_r", Float64, rotation_r_callback)
     rospy.Subscriber("abduction_angle_r", Float64, abduction_r_callback)
     rospy.Subscriber("hip_angle_r", Float64, hip_r_callback)
@@ -255,6 +336,20 @@ if __name__ == '__main__':
     rospy.Subscriber("ankle_angle_l", Float64, ankle_l_callback)
     rospy.Subscriber("ankle_twist_angle_l", Float64, ankle_twist_l_callback)
 
+    rospy.Subscriber("right_1", Float64, right_1_callback)
+    rospy.Subscriber("right_2", Float64, right_2_callback)
+    rospy.Subscriber("right_3", Float64, right_3_callback)
+    rospy.Subscriber("right_4", Float64, right_4_callback)
+    rospy.Subscriber("right_5", Float64, right_5_callback)
+
+    rospy.Subscriber("left_1", Float64, left_1_callback)
+    rospy.Subscriber("left_2", Float64, left_2_callback)
+    rospy.Subscriber("left_3", Float64, left_3_callback)
+    rospy.Subscriber("left_4", Float64, left_4_callback)
+    rospy.Subscriber("left_5", Float64, left_5_callback)
+
+    rospy.Subscriber("head", Float64, head_callback)
+
     run_motor(DXL1_ID, constrain(2036, DXL1_ID))
     run_motor(DXL2_ID, constrain(2036, DXL2_ID))
     run_motor(DXL3_ID, constrain(2036, DXL3_ID))
@@ -268,6 +363,20 @@ if __name__ == '__main__':
     run_motor(DXL10_ID, constrain(2036, DXL4_ID))
     run_motor(DXL11_ID, constrain(2036, DXL5_ID))
     run_motor(DXL12_ID, constrain(2036, DXL6_ID))
+
+    run_motor(DXL19_ID, right_1)
+    run_motor(DXL20_ID, right_2 + 20)
+    run_motor(DXL21_ID, right_3)
+    run_motor(DXL22_ID, right_4)
+    run_motor(DXL23_ID, right_5)
+
+    run_motor(DXL15_ID, left_1 + 25)
+    run_motor(DXL16_ID, left_2 + 100)
+    run_motor(DXL17_ID, left_3)
+    run_motor(DXL18_ID, left_4)
+    run_motor(DXL24_ID, left_5)
+
+    run_motor(DXL25_ID, head)
 
     rate = rospy.Rate(1000)
 
@@ -288,6 +397,20 @@ while not rospy.is_shutdown():
     run_motor(DXL11_ID, constrain(ankle_left, DXL11_ID))
     run_motor(DXL12_ID, constrain(ankle_twist_left, DXL12_ID))
 
+    run_motor(DXL19_ID, right_1)
+    run_motor(DXL20_ID, right_2 + 20)
+    run_motor(DXL21_ID, right_3)
+    run_motor(DXL22_ID, right_4)
+    run_motor(DXL23_ID, right_5)
+
+    run_motor(DXL15_ID, left_1 + 25)
+    run_motor(DXL16_ID, left_2 + 100)
+    run_motor(DXL17_ID, left_3)
+    run_motor(DXL18_ID, left_4)
+    run_motor(DXL24_ID, left_5)
+
+    run_motor(DXL25_ID, head)
+
     # print abduction_right, hip_right, knee_right, ankle_right, ankle_twist_right, abduction_left, hip_left, knee_left, ankle_left, ankle_twist_left
 
     rate.sleep()
@@ -306,6 +429,21 @@ while not rospy.is_shutdown():
         # torque_diable(DXL10_ID)
         # torque_diable(DXL11_ID)
         # torque_diable(DXL12_ID)
+
+        # torque_diable(DXL15_ID)
+        # torque_diable(DXL16_ID)
+        # torque_diable(DXL17_ID)
+        # torque_diable(DXL18_ID)
+        # torque_diable(DXL19_ID)
+        #
+        # torque_diable(DXL20_ID)
+        # torque_diable(DXL21_ID)
+        # torque_diable(DXL22_ID)
+        # torque_diable(DXL23_ID)
+        # torque_diable(DXL24_ID)
+        #
+        # torque_diable(DXL25_ID)
+
         print("Shutting down. Motor torque disabled.")
 
         portHandler.closePort()   # Close port
