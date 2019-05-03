@@ -1,0 +1,16 @@
+<launch>
+  <arg name="play" default="True"/>
+  <arg name="rosbag1" default="$(find dynamixel_control)/bag/walking_gait_6mm.bag" />
+  <arg name="rosbag2" default="$(find dynamixel_control)/bag/walking_gait_10mm.bag" />
+
+  <node name="hil_trajectory" pkg="dynamixel_control" type="hil_trajectory.py" required="true" output="screen"/>
+
+<group unless="$(arg play)">
+  <node name="hil_preprocessor" pkg="dynamixel_control" type="hil_preprocessor.py" required="true" output="screen"/>
+</group>
+
+<group if="$(arg play)">
+  <node pkg="rosbag" type="play" name="robot_bag_player" args="$(arg rosbag1) --clock"/>
+</group>
+
+</launch>
