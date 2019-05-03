@@ -51,6 +51,19 @@ DXL10_ID                    = 10                  # Dynamixel#1 ID : 1
 DXL11_ID                    = 11                 # Dynamixel#1 ID : 1
 DXL12_ID                    = 12                 # Dynamixel#1 ID : 1
 
+DXL13_ID                     = 15                             # Dynamixel ID: 1
+DXL14_ID                     = 16
+DXL15_ID                     = 17                            # Dynamixel ID: 1
+DXL16_ID                     = 18
+DXL17_ID                     = 19                            # Dynamixel ID: 1
+DXL18_ID                     = 20
+DXL19_ID                     = 21                            # Dynamixel ID: 1
+DXL20_ID                     = 22
+# DXL9_ID                     = 9                             # Dynamixel ID: 1
+# DXL10_ID                    = 10
+DXL21_ID                    = 23
+DXL22_ID                    = 24
+
 BAUDRATE                    = 1000000             # Dynamixel default baudrate : 57600
 DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
                                                 # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
@@ -82,19 +95,47 @@ groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSIT
 # ankle_left =        1798
 # ankle_twist_left =  2036
 
+# rotation_right =    2036
+# abduction_right =   2036
+# hip_right =         2407
+# knee_right =        2636
+# ankle_right =       1728
+# ankle_twist_right = 2036
+#
+# rotation_left =     2036
+# abduction_left =    2036
+# hip_left =          2135
+# knee_left =         2395
+# ankle_left =        1728
+# ankle_twist_left =  2036
+
 rotation_right =    2036
 abduction_right =   2036
-hip_right =         2407
-knee_right =        2636
-ankle_right =       1728
+hip_right =         2147
+knee_right =        2602
+ankle_right =       1581
 ankle_twist_right = 2036
 
 rotation_left =     2036
 abduction_left =    2036
-hip_left =          2135
-knee_left =         2395
-ankle_left =        1728
+hip_left =          2412
+knee_left =         2721
+ankle_left =        1727
 ankle_twist_left =  2036
+
+# rotation_right =    2036
+# abduction_right =   1921
+# hip_right =         2224
+# knee_right =        2655
+# ankle_right =       1605
+# ankle_twist_right = 2150
+#
+# rotation_left =     2036
+# abduction_left =    1921
+# hip_left =          2412
+# knee_left =         2721
+# ankle_left =        1727
+# ankle_twist_left =  2150
 
 # Open port
 if portHandler.openPort():
@@ -211,7 +252,17 @@ if __name__ == '__main__':
     initialize_motor(DXL11_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL12_ID) #Enter Motor ID to enable torque and add parameter storage
 
-
+    initialize_motor(DXL13_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL14_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL15_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL16_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL17_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL18_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL19_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL20_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL21_ID) #Enter Motor ID to enable torque and add parameter storage
+    initialize_motor(DXL22_ID) #Enter Motor ID to enable torque and add parameter storage
+    
     rospy.init_node('motor_drive', anonymous=True)
     rospy.Subscriber("rotation_angle_r", Float64, rotation_r_callback)
     rospy.Subscriber("abduction_angle_r", Float64, abduction_r_callback)
@@ -265,19 +316,19 @@ while not rospy.is_shutdown():
     rate.sleep()
 
     if (rospy.is_shutdown()):
-        torque_diable(DXL1_ID)
-        torque_diable(DXL2_ID)
-        torque_diable(DXL3_ID)
-        torque_diable(DXL4_ID)
-        torque_diable(DXL5_ID)
-        torque_diable(DXL6_ID)
-
-        torque_diable(DXL7_ID)
-        torque_diable(DXL8_ID)
-        torque_diable(DXL9_ID)
-        torque_diable(DXL10_ID)
-        torque_diable(DXL11_ID)
-        torque_diable(DXL12_ID)
+        # torque_diable(DXL1_ID)
+        # torque_diable(DXL2_ID)
+        # torque_diable(DXL3_ID)
+        # torque_diable(DXL4_ID)
+        # torque_diable(DXL5_ID)
+        # torque_diable(DXL6_ID)
+        #
+        # torque_diable(DXL7_ID)
+        # torque_diable(DXL8_ID)
+        # torque_diable(DXL9_ID)
+        # torque_diable(DXL10_ID)
+        # torque_diable(DXL11_ID)
+        # torque_diable(DXL12_ID)
         print("Shutting down. Motor torque disabled.")
 
         portHandler.closePort()   # Close port

@@ -6,25 +6,115 @@ from time import sleep
 from std_msgs.msg import Float64
 
 pres_time = 0.0
-total_time = 1.0
+total_time = 3.0
 initial_angle = 180.4
 peak_angle = 1000.6
+sample_size = 40
 
-abduc_val_right =   [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2058, 2069, 2092, 2103, 2125, 2136, 2158, 2169, 2192, 2192, 2169, 2158, 2136, 2125, 2103, 2092, 2069, 2058, 2036]
-hip_val_right =     [2141, 2187, 2228, 2263, 2295, 2324, 2350, 2373, 2394, 2412, 2427, 2440, 2450, 2458, 2462, 2463, 2461, 2455, 2445, 2431, 2431, 2420, 2408, 2396, 2384, 2371, 2358, 2344, 2330, 2315, 2300, 2285, 2269, 2252, 2235, 2217, 2199, 2181, 2161, 2141]
-knee_val_right =    [2527, 2588, 2639, 2682, 2717, 2747, 2772, 2791, 2806, 2817, 2823, 2825, 2822, 2815, 2804, 2788, 2767, 2740, 2708, 2669, 2669, 2669, 2667, 2666, 2663, 2660, 2656, 2651, 2645, 2639, 2632, 2624, 2615, 2605, 2595, 2583, 2571, 2557, 2543, 2527]
-ankle_val_right =   [1651, 1635, 1625, 1618, 1614, 1613, 1614, 1618, 1623, 1631, 1640, 1651, 1664, 1678, 1694, 1711, 1730, 1751, 1773, 1798, 1798, 1787, 1777, 1767, 1757, 1747, 1738, 1729, 1721, 1712, 1704, 1697, 1689, 1682, 1676, 1670, 1664, 1659, 1655, 1651]
-ankle_twist_right = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2014, 2003, 1980, 1969, 1947, 1936, 1914, 1903, 1880, 1880, 1903, 1914, 1936, 1947, 1969, 1980, 2003, 2014, 2036]
+# Hai Trajectory
+# right_1 = [2036, 4000, 4000, 4000, 4000, 4000, 2036, 2036, 2036]
+# right_2 = [2036, 2453, 2453, 2453, 2453, 2453, 2136, 2036, 2036]
+# right_3 = [2036, 977, 977, 977, 977, 977, 2036, 2036, 2036]
+# right_4 = [2036, 2732, 2068, 2732, 2068, 2732, 2036, 2036, 2036]
+# right_5 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+#
+# left_1 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_2 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_3 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_4 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_5 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
 
-abduc_val_left =    [2036, 2014, 2003, 1980, 1969, 1947, 1936, 1914, 1903, 1880, 1880, 1903, 1914, 1936, 1947, 1969, 1980, 2003, 2014, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
-hip_val_left =      [2431, 2420, 2408, 2396, 2384, 2371, 2358, 2344, 2330, 2315, 2300, 2285, 2269, 2252, 2235, 2217, 2199, 2181, 2161, 2141, 2141, 2187, 2228, 2263, 2295, 2324, 2350, 2373, 2394, 2412, 2427, 2440, 2450, 2458, 2462, 2463, 2461, 2455, 2445, 2431]
-knee_val_left =     [2669, 2669, 2667, 2666, 2663, 2660, 2656, 2651, 2645, 2639, 2632, 2624, 2615, 2605, 2595, 2583, 2571, 2557, 2543, 2527, 2527, 2588, 2639, 2682, 2717, 2747, 2772, 2791, 2806, 2817, 2823, 2825, 2822, 2815, 2804, 2788, 2767, 2740, 2708, 2669]
-ankle_val_left =    [1798, 1787, 1777, 1767, 1757, 1747, 1738, 1729, 1721, 1712, 1704, 1697, 1689, 1682, 1676, 1670, 1664, 1659, 1655, 1651, 1651, 1635, 1625, 1618, 1614, 1613, 1614, 1618, 1623, 1631, 1640, 1651, 1664, 1678, 1694, 1711, 1730, 1751, 1773, 1798]
-ankle_twist_left =  [2036, 2058, 2069, 2092, 2103, 2125, 2136, 2158, 2169, 2192, 2192, 2169, 2158, 2136, 2125, 2103, 2092, 2069, 2058, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# head =   [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
 
-# hip_val_right = [2036, 1800, 1500, 1800, 2036]
-# knee_val_right = [2036, 1800, 1500, 1800, 2036]
-# ankle_val_right = [2036, 2150, 2150, 2150, 2036]
+# # Handshake
+# right_1 = [2036, 2036, 2825, 2825, 2878, 2825, 2878, 2825, 2878, 2036, 2036]
+# right_2 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# right_3 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# right_4 = [2036, 2036, 2573, 2573, 2036, 2573, 2036, 2573, 2036, 2036, 2036]
+# right_5 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+#
+# left_1 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_2 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_3 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_4 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+# left_5 = [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+#
+# head =   [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
+
+
+# Namasthe
+# right_1 = [2036, 2036, 3078, 3078, 2036, 2036]
+# right_2 = [2036, 2036, 1902, 1902, 2036, 2036]
+# right_3 = [2036, 2036, 1103, 1103, 2036, 2036]
+# right_4 = [2036, 2036, 2955, 2955, 2036, 2036]
+# right_5 = [2036, 2036, 2887, 2887, 2036, 2036]
+#
+# left_1 = [2036, 2036, 1019, 1019, 2036, 2036]
+# left_2 = [2036, 2036, 1947, 1947, 2036, 2036]
+# left_3 = [2036, 2036, 3062, 3062, 2036, 2036]
+# left_4 = [2036, 2036, 1060, 1060, 2036, 2036]
+# left_5 = [2036, 2036, 1244, 1244, 2036, 2036]
+#
+# head =   [2036, 2036, 2036, 2036, 2036, 2036]
+
+# Hand single
+# right_1 = [2036, 2051, 2051, 2051, 2036]
+# right_2 = [2036, 2662, 2662, 2662, 2036]
+# right_3 = [2036, 3018, 3018, 3018, 2036]
+# right_4 = [2036, 2881, 2881, 2881, 2036]
+# right_5 = [2036, 2036, 2036, 2036, 2036]
+#
+# left_1 = [2036, 2036, 2036, 2036, 2036]
+# left_2 = [2036, 2036, 2036, 2036, 2036]
+# left_3 = [2036, 2036, 2036, 2036, 2036]
+# left_4 = [2036, 2036, 2036, 2036, 2036]
+# left_5 = [2036, 2036, 2036, 2036, 2036]
+
+# head =   [2036, 2036, 2036, 2036, 2036]
+
+# Hand double
+# right_1 = [2036, 3144, 3144, 3144, 2036]
+# right_2 = [2036, 2101, 2101, 2101, 2036]
+# right_3 = [2036, 1155, 1155, 1155, 2036]
+# right_4 = [2036, 2352, 2352, 2352, 2036]
+# right_5 = [2036, 1788, 1788, 1788, 2036]
+#
+# left_1 = [2036, 900, 900, 900, 2036]
+# left_2 = [2036, 2133, 2133, 2133, 2036]
+# left_3 = [2036, 3054, 3054, 3054, 2036]
+# left_4 = [2036, 1722, 1722, 1722, 2036]
+# left_5 = [2036, 2298, 2298, 2298, 2036]
+
+# head =   [2036, 2036, 2036, 2036, 2036]
+
+# Hand funk
+# right_1 = [2036, 1988, 1988, 1988, 2036, 2036, 3080, 3080, 3080, 2036]
+# right_2 = [2036, 3098, 3098, 3098, 2036, 2036, 2078, 2078, 2078, 2036]
+# right_3 = [2036, 2117, 2117, 2117, 2036, 2036, 1073, 1073, 1073, 2036]
+# right_4 = [2036, 2177, 2177, 2177, 2036, 2036, 3064, 3064, 3064, 2036]
+# right_5 = [2036, 2093, 2093, 2093, 2036, 2036, 2173, 2173, 2173, 2036]
+#
+# left_1 = [2036, 1039, 1039, 1039, 2036, 2036, 2066, 2066, 2066, 2036]
+# left_2 = [2036, 2085, 2085, 2085, 2036, 2036, 3104, 3104, 3104, 2036]
+# left_3 = [2036, 3039, 3039, 3039, 2036, 2036, 2023, 2023, 2023, 2036]
+# left_4 = [2036, 1105, 1105, 1105, 2036, 2036, 2033, 2033, 2033, 2036]
+# left_5 = [2036, 2039, 2039, 2039, 2036, 2036, 2019, 2019, 2019, 2036]
+# head =   [2036, 2559, 2559, 2559, 2036, 2036, 1620, 1620, 1620, 2036]
+
+# Right wave
+# right_1 = [2036, 2936, 3288, 2936, 3288, 2936, 2936, 3288, 2936, 3288, 2936, 2036]
+# right_2 = [2036, 2236, 2236, 2236, 2236, 2236, 1836, 1836, 1836, 1836, 1836, 2036]
+# right_3 = [2036, 1028, 1108, 1028, 1108, 1028, 1028, 1108, 1028, 1108, 1028, 2036]
+# right_4 = [2036, 1997, 2006, 1997, 2006, 1997, 1997, 2006, 1997, 2006, 1997, 2036]
+# right_5 = [2036, 2127, 2067, 2127, 2067, 2127, 2127, 2067, 2127, 2067, 2127, 2036]
+#
+# left_1 = [2036, 1159, 828, 1159, 828, 1159, 1159, 828, 1159, 828, 1159, 2036]
+# left_2 = [2036, 1886, 1886, 1886, 1886, 1886, 2186, 2186, 2186, 2186, 2186, 2036]
+# left_3 = [2036, 3150, 3045, 3150, 3045, 3150, 3150, 3045, 3150, 3045, 3150, 2036]
+# left_4 = [2036, 1989, 2089, 1989, 2089, 1989, 1989, 2089, 1989, 2089, 1989, 2036]
+# left_5 = [2036, 1955, 2084, 1955, 2084, 1955, 1955, 2084, 1955, 2084, 1955, 2036]
+#
+# head =   [2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036, 2036]
 
 i = -1;
 j = 0
@@ -48,52 +138,55 @@ def extend_sample(data, present_sample, new_sample):
 
 if __name__ == '__main__':
     rospy.init_node('gait_generation', anonymous=True)
-    pub1 = rospy.Publisher('rotation_angle_r', Float64, queue_size=10)
-    pub2 = rospy.Publisher('abduction_angle_r', Float64, queue_size=10)
-    pub3 = rospy.Publisher('hip_angle_r', Float64, queue_size=10)
-    pub4 = rospy.Publisher('knee_angle_r', Float64, queue_size=10)
-    pub5 = rospy.Publisher('ankle_angle_r', Float64, queue_size=10)
-    pub6 = rospy.Publisher('ankle_twist_angle_r', Float64, queue_size=10)
+    pub1 = rospy.Publisher('right_1', Float64, queue_size=10)
+    pub2 = rospy.Publisher('right_2', Float64, queue_size=10)
+    pub3 = rospy.Publisher('right_3', Float64, queue_size=10)
+    pub4 = rospy.Publisher('right_4', Float64, queue_size=10)
+    pub5 = rospy.Publisher('right_5', Float64, queue_size=10)
 
-    pub7 = rospy.Publisher('rotation_angle_l', Float64, queue_size=10)
-    pub8 = rospy.Publisher('abduction_angle_l', Float64, queue_size=10)
-    pub9 = rospy.Publisher('hip_angle_l', Float64, queue_size=10)
-    pub10 = rospy.Publisher('knee_angle_l', Float64, queue_size=10)
-    pub11 = rospy.Publisher('ankle_angle_l', Float64, queue_size=10)
-    pub12 = rospy.Publisher('ankle_twist_angle_l', Float64, queue_size=10)
+    pub6 =  rospy.Publisher('left_1', Float64, queue_size=10)
+    pub7 =  rospy.Publisher('left_2', Float64, queue_size=10)
+    pub8 =  rospy.Publisher('left_3', Float64, queue_size=10)
+    pub9 =  rospy.Publisher('left_4', Float64, queue_size=10)
+    pub10 = rospy.Publisher('left_5', Float64, queue_size=10)
 
-    abduc_val_right = extend_sample(abduc_val_right, len(abduc_val_right), 15)
-    hip_val_right = extend_sample(hip_val_right, len(hip_val_right), 15)
-    knee_val_right = extend_sample(knee_val_right, len(knee_val_right), 15)
-    ankle_val_right = extend_sample(ankle_val_right, len(ankle_val_right), 15)
-    ankle_twist_right = extend_sample(ankle_twist_right, len(ankle_twist_right), 15)
+    pub11 = rospy.Publisher('head', Float64, queue_size=10)
 
-    abduc_val_left = extend_sample(abduc_val_left, len(abduc_val_left), 15)
-    hip_val_left = extend_sample(hip_val_left, len(hip_val_left), 15)
-    knee_val_left = extend_sample(knee_val_left, len(knee_val_left), 15)
-    ankle_val_left = extend_sample(ankle_val_left, len(ankle_val_left), 15)
-    ankle_twist_left = extend_sample(ankle_twist_left, len(ankle_twist_left), 15)
+    right_1 = extend_sample(right_1, len(right_1), sample_size)
+    right_2 = extend_sample(right_2, len(right_2), sample_size)
+    right_3 = extend_sample(right_3, len(right_3), sample_size)
+    right_4 = extend_sample(right_4, len(right_4), sample_size)
+    right_5 = extend_sample(right_5, len(right_5), sample_size)
 
-    # print len(hip_val_right)
-while (j < 5):
+    left_1 = extend_sample(left_1, len(left_1), sample_size)
+    left_2 = extend_sample(left_2, len(left_2), sample_size)
+    left_3 = extend_sample(left_3, len(left_3), sample_size)
+    left_4 = extend_sample(left_4, len(left_4), sample_size)
+    left_5 = extend_sample(left_5, len(left_5), sample_size)
+
+    head = extend_sample(head, len(head), sample_size)
+
+while (j < 1):
     while (pres_time < total_time):
-        pres_time += total_time/len(hip_val_right)
-        print (abduc_val_right[i], ankle_twist_right[i], abduc_val_left[i], ankle_twist_left[i])
+        pres_time += total_time/len(right_1)
+        print (right_1[i], right_2[i], right_3[i], right_4[i], right_5[i])
 
-        pub2.publish(abduc_val_right[i])
-        pub3.publish(hip_val_right[i])
-        pub4.publish(knee_val_right[i])
-        pub5.publish(ankle_val_right[i])
-        pub6.publish(ankle_twist_right[i])
+        pub1.publish(right_1[i])
+        pub2.publish(right_2[i])
+        pub3.publish(right_3[i])
+        pub4.publish(right_4[i])
+        pub5.publish(right_5[i])
 
-        pub8.publish(abduc_val_left[i])
-        pub9.publish(hip_val_left[i])
-        pub10.publish(knee_val_left[i])
-        pub11.publish(ankle_val_left[i])
-        pub12.publish(ankle_twist_left[i])
+        pub6.publish(left_1[i])
+        pub7.publish(left_2[i])
+        pub8.publish(left_3[i])
+        pub9.publish(left_4[i])
+        pub10.publish(left_5[i])
+
+        pub11.publish(head[i])
 
         i += 1
-        sleep(total_time/len(hip_val_right))
+        sleep(total_time/len(right_1))
     i = -1
     pres_time = 0.0
     j += 1
