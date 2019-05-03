@@ -37,14 +37,12 @@ LEN_PRO_PRESENT_POSITION    = 4
 PROTOCOL_VERSION            = 2.0               # See which protocol version is used in the Dynamixel
 
 # Default setting
-DXL1_ID                     = 1              # Dynamixel#1 ID : 1
 DXL2_ID                     = 2                # Dynamixel#1 ID : 1
 DXL3_ID                     = 3                 # Dynamixel#1 ID : 1
 DXL4_ID                     = 4                  # Dynamixel#1 ID : 1
 DXL5_ID                     = 5                  # Dynamixel#1 ID : 1
 DXL6_ID                     = 6                  # Dynamixel#1 ID : 1
 
-DXL7_ID                     = 7              # Dynamixel#1 ID : 1
 DXL8_ID                     = 8                # Dynamixel#1 ID : 1
 DXL9_ID                     = 9                 # Dynamixel#1 ID : 1
 DXL10_ID                    = 10                  # Dynamixel#1 ID : 1
@@ -293,14 +291,12 @@ def head_callback(msg):
     head = msg.data
 
 if __name__ == '__main__':
-    initialize_motor(DXL1_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL2_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL3_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL4_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL5_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL6_ID) #Enter Motor ID to enable torque and add parameter storage
 
-    initialize_motor(DXL7_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL8_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL9_ID) #Enter Motor ID to enable torque and add parameter storage
     initialize_motor(DXL10_ID) #Enter Motor ID to enable torque and add parameter storage
@@ -350,14 +346,12 @@ if __name__ == '__main__':
 
     rospy.Subscriber("head", Float64, head_callback)
 
-    run_motor(DXL1_ID, constrain(2036, DXL1_ID))
     run_motor(DXL2_ID, constrain(2036, DXL2_ID))
     run_motor(DXL3_ID, constrain(2036, DXL3_ID))
     run_motor(DXL4_ID, constrain(2036, DXL4_ID))
     run_motor(DXL5_ID, constrain(2036, DXL5_ID))
     run_motor(DXL6_ID, constrain(2036, DXL6_ID))
 
-    run_motor(DXL7_ID, constrain(2036, DXL1_ID))
     run_motor(DXL8_ID, constrain(2036, DXL2_ID))
     run_motor(DXL9_ID, constrain(2036, DXL3_ID))
     run_motor(DXL10_ID, constrain(2036, DXL4_ID))
@@ -383,14 +377,12 @@ if __name__ == '__main__':
 while not rospy.is_shutdown():
     # print (abduction_right, ankle_twist_right, abduction_left, ankle_twist_left)
 
-    run_motor(DXL1_ID, constrain(rotation_right, DXL1_ID))
     run_motor(DXL2_ID, constrain(abduction_right, DXL2_ID))
     run_motor(DXL3_ID, constrain(hip_right, DXL3_ID))
     run_motor(DXL4_ID, constrain(knee_right, DXL4_ID))
     run_motor(DXL5_ID, constrain(ankle_right, DXL5_ID))
     run_motor(DXL6_ID, constrain(ankle_twist_right, DXL6_ID))
 
-    run_motor(DXL7_ID, constrain(rotation_left, DXL7_ID))
     run_motor(DXL8_ID, constrain(abduction_left, DXL8_ID))
     run_motor(DXL9_ID, constrain(hip_left, DXL9_ID))
     run_motor(DXL10_ID, constrain(knee_left, DXL10_ID))
@@ -416,14 +408,12 @@ while not rospy.is_shutdown():
     rate.sleep()
 
     if (rospy.is_shutdown()):
-        # torque_diable(DXL1_ID)
         # torque_diable(DXL2_ID)
         # torque_diable(DXL3_ID)
         # torque_diable(DXL4_ID)
         # torque_diable(DXL5_ID)
         # torque_diable(DXL6_ID)
         #
-        # torque_diable(DXL7_ID)
         # torque_diable(DXL8_ID)
         # torque_diable(DXL9_ID)
         # torque_diable(DXL10_ID)
