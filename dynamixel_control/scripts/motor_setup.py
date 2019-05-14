@@ -110,16 +110,16 @@ groupSyncRead = GroupSyncRead(portHandler, packetHandler, ADDR_PRO_PRESENT_POSIT
 
 rotation_right =    2036
 abduction_right =   2036
-hip_right =         2147
-knee_right =        2602
-ankle_right =       1581
+hip_right =         2036
+knee_right =        2036
+ankle_right =       2036
 ankle_twist_right = 2036
 
 rotation_left =     2036
 abduction_left =    2036
-hip_left =          2412
-knee_left =         2721
-ankle_left =        1727
+hip_left =          2036
+knee_left =         2036
+ankle_left =        2036
 ankle_twist_left =  2036
 
 # rotation_right =    2036
