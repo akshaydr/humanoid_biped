@@ -16,7 +16,7 @@ def callback(msg):
     vals = msg.data.split(",")
 
     en1 = float(vals[0])
-    en2 = float(vals[1]) 
+    en2 = float(vals[1])
 
     print en1, en2
 
