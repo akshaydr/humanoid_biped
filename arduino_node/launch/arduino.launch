@@ -1,4 +1,4 @@
 <launch>
-  <node pkg="arduino_node" type="node.py" name="encoder_raw" output="screen"/>
-  <node pkg="rosserial_python" type="serial_node.py" name="encoder_arduino" args="/dev/ttyACM0"/>
+  <node pkg="arduino_node" type="encoder_raw.py" name="encoder_raw" output="screen"/>
+  <node pkg="rosserial_arduino" type="serial_node.py" name="encoder_arduino" args="/dev/ttyACM0"/>
 </launch>
