@@ -65,7 +65,6 @@ def algorithm1(dl, dr, dt):
 
         dx = R * math.sin(dth + th) - R * math.sin(th)
         dy = -(R * math.cos(dth + th) + R * math.cos(th))
-        # th = boundAngle(th + wd);
 
 def algorithm2(dl, dr, dt):
     global x, y, th, vx, vy, vth, dx, dy, dth
@@ -76,7 +75,6 @@ def algorithm2(dl, dr, dt):
     dth = (dl - dr) / (wheelDistance)
     dx = s_ * math.cos(th + dth)
     dy = s_ * math.sin(th + dth)
-
 
 def odomCallback(msg):
     global enL, enR, oldenL, oldenR
