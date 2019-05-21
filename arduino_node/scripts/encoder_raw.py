@@ -26,7 +26,7 @@ if __name__ == '__main__':
     rospy.Subscriber('encoderFeedback_raw', String, callback)
     pub = rospy.Publisher('odom_pub', String, queue_size=10)
 
-    rate = rospy.Rate(50) # 50hz
+    rate = rospy.Rate(300) # 50hz
 
     while not rospy.is_shutdown():
         try:

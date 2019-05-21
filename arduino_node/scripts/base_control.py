@@ -162,7 +162,7 @@ if __name__ == '__main__':
     current_time = rospy.Time.now();
     last_time = rospy.Time.now();
 
-    rate = rospy.Rate(40)
+    rate = rospy.Rate(300)
 
     while not rospy.is_shutdown():
         current_time = rospy.Time.now()
@@ -170,10 +170,10 @@ if __name__ == '__main__':
         odom_tf_broadcaster = tf.TransformBroadcaster()
         odom_quat = tf.transformations.quaternion_from_euler(0.0, 0.0, th)
         odom_tf_broadcaster.sendTransform(
-        (x, y, 0.0),
+        (x * 1000, y * 1000, 0.0),
         odom_quat,
         current_time,
-        "base_link",
+        "map",
         "odom"
         )
         rate.sleep()
