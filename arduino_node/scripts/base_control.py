@@ -170,7 +170,7 @@ if __name__ == '__main__':
         odom_tf_broadcaster = tf.TransformBroadcaster()
         odom_quat = tf.transformations.quaternion_from_euler(0.0, 0.0, th)
         odom_tf_broadcaster.sendTransform(
-        (x * 1000, y * 1000, 0.0),
+        (x , y , 0.0),
         odom_quat,
         current_time,
         "map",
