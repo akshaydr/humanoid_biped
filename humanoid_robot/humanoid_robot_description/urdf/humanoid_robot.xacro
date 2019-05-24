@@ -1,0 +1,99 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="humanoi_robot">
+  <xacro:include filename="$(find humanoid_robot_description)/urdf/_d435.urdf.xacro"/>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0023203 -0.0042091 0.36843" rpy="0 0 0"/>
+      <mass value="2.7944"/>
+      <inertia ixx="0.25036" ixy="2.2026E-05" ixz="-0.0012097" iyy="0.23759" iyz="0.0059596" izz="0.014746"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://humanoid_robot_description/meshes/base_link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://humanoid_robot_description/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_link">
+    <inertial>
+      <origin xyz="1.35241817744713E-11 -4.29594134931932E-07 0.0204194053808222" rpy="0 0 0"/>
+      <mass value="1.59252474408208"/>
+      <inertia ixx="1.79972735915405E-05" ixy="4.57742110410381E-16" ixz="-4.93967481989304E-13" iyy="1.79972590513083E-05" iyz="1.56909393545273E-08" izz="1.45402322068069E-11"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://humanoid_robot_description/meshes/left_link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://humanoid_robot_description/meshes/left_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_joint" type="continuous">
+    <origin xyz="0.169262606933294 0 0.159000000000001" rpy="1.57079632679493 -1.46387114251334 -1.57079632679493"/>
+    <parent link="base_link"/>
+    <child link="left_link"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <link name="right_link">
+    <inertial>
+      <origin xyz="1.35242927967738E-11 -4.29594135376021E-07 -0.0495805946191804" rpy="0 0 0"/>
+      <mass value="1.59252474408208"/>
+      <inertia ixx="1.79972735915405E-05" ixy="4.57744227992749E-16" ixz="-4.93967515870296E-13" iyy="1.79972590513084E-05" iyz="1.56909393543429E-08" izz="1.45402322064589E-11"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://humanoid_robot_description/meshes/right_link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://humanoid_robot_description/meshes/right_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_joint" type="continuous">
+    <origin xyz="-0.091737393066708 0 0.159" rpy="-1.57079632679489 0.3917964121895 -1.5707963267949"/>
+    <parent link="base_link"/>
+    <child link="right_link"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- <link name="cam_link"> <inertial> <origin xyz="0.00168231651076461 2.48038252426142E-06 -0.0132722903666884" rpy="0 0 0"/> <mass value="0.0381911731303585"/> <inertia ixx="1.55475074292167E-06" ixy="2.08746633007501E-08"
+  ixz="1.15473123017191E-07" iyy="2.60087936743124E-06" iyz="2.59815333318166E-08" izz="1.11202513930202E-06"/> </inertial> <visual> <origin xyz="0 0 0" rpy="0 0 0"/> <geometry> <mesh
+  filename="package://humanoid_robot_description/meshes/cam_link.STL"/> </geometry> <material name=""> <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/> </material> </visual> <collision> <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry> <mesh filename="package://humanoid_robot_description/meshes/cam_link.STL"/> </geometry> </collision> </link> -->
+
+  <sensor_d435 parent="base_link">
+    <origin xyz="0.00372507443741274 -0.08 0.938" rpy="0 0 -1.57079777883574"/>
+  </sensor_d435>
+
+  <!-- 0.00372507443741274 -0.0940970936076877 0.950672457145824 -->
+  <!-- <joint name="cam_joint" type="fixed"> <origin xyz="0.00372507443741274 -0.0940970936076877 0.950672457145824" rpy="-1.57079777883574 0 3.14159265358979"/> <parent link="base_link"/> <child link="cam_link"/> <axis xyz="0 0 0"/> </joint> -->
+
+</robot>
