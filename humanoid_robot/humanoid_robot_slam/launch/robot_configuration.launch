@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/opensource_tracking.launch"/>
+  <node pkg="rosserial_arduino" type="serial_node.py" name="encoder_arduino" args="/dev/ttyACM0"/>
+  <node pkg="humanoid_robot_base" type="encoder_raw.py" name="encoder_raw"/>
+  <node pkg="humanoid_robot_base" type="base_control.py" name="odometry"/>
+
+</launch>

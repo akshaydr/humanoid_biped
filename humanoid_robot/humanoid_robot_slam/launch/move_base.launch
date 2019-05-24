@@ -1,0 +1,27 @@
+<launch>
+
+  <master auto="start"/>
+  <!-- Run the map server -->
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find my_map_package)/my_map.pgm my_map_resolution"/> -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find humanoid_robot_slam)/map/map.pgm 0.1"/>
+
+  <node name="pointcloud_to_laserscan" pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node">
+    <param name="range_max" value="10.0"/>
+    <param name="range_min" value="0.0"/>
+    <param name="frame_id" value="/map"/>
+  </node>
+  <!-- <remap from="/voxel_cloud" to="/cloud_in"/> -->
+  <!--- Run AMCL -->
+  <node pkg="humanoid_robot_slam" type="pointcloud_remap.py" name="pointcloud_remap"/>
+
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find humanoid_robot_slam)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/base_local_planner_params.yaml" command="load"/>
+  </node>
+
+</launch>
