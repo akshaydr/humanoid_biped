@@ -9,7 +9,7 @@ if __name__ == '__main__':
     rospy.init_node('gait_generation', anonymous=True)
 
     pub = rospy.Publisher('cloud_in', PointCloud2, queue_size=10)
-    rospy.Subscriber("voxel_cloud", PointCloud2, data_callback)
+    rospy.Subscriber("/camera/depth/color/points", PointCloud2, data_callback)
 
     rate = rospy.Rate(40)
 while not rospy.is_shutdown():

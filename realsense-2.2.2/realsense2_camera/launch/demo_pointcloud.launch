@@ -25,6 +25,15 @@
       <arg name="tf_prefix"         value="$(arg camera)"/>
     </include>
 
+    <node name="pointcloud_to_laserscan" pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node">
+      <param name="range_max" value="10.0"/>
+      <param name="range_min" value="0.0"/>
+      <param name="min_height" value="-1.0"/>
+      <param name="max_height" value="1.0"/>
+      <param name="frame_id" value="/camera_depth_optical_frams"/>
+    </node>
+    <node pkg="humanoid_robot_slam" type="pointcloud_remap.py" name="pointcloud_remap"/>
+
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find realsense2_camera)/rviz/pointcloud.rviz" required="true" />
   </group>
 </launch>

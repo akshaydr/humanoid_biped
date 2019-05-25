@@ -3,9 +3,9 @@
 
   <link name="base_link">
     <inertial>
-      <origin xyz="0.0023203 -0.0042091 0.36843" rpy="0 0 0"/>
-      <mass value="2.7944"/>
-      <inertia ixx="0.25036" ixy="2.2026E-05" ixz="-0.0012097" iyy="0.23759" iyz="0.0059596" izz="0.014746"/>
+      <origin xyz="0.000106771898555624 -0.00950333311264856 0.421923246207401" rpy="0 0 0"/>
+      <mass value="1.09045449262295"/>
+      <inertia ixx="0.1329526918414" ixy="4.52001568995455E-06" ixz="-4.72627768389478E-05" iyy="0.132960613916937" iyz="0.00458399908461352" izz="0.00114729742430935"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -13,7 +13,7 @@
         <mesh filename="package://humanoid_robot_description/meshes/base_link.STL"/>
       </geometry>
       <material name="">
-        <color rgba="0.79216 0.81961 0.93333 1"/>
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
       </material>
     </visual>
     <collision>
@@ -26,9 +26,9 @@
 
   <link name="left_link">
     <inertial>
-      <origin xyz="1.35241817744713E-11 -4.29594134931932E-07 0.0204194053808222" rpy="0 0 0"/>
+      <origin xyz="1.35240152410177E-11 -4.29594135015199E-07 -0.0495805946191804" rpy="0 0 0"/>
       <mass value="1.59252474408208"/>
-      <inertia ixx="1.79972735915405E-05" ixy="4.57742110410381E-16" ixz="-4.93967481989304E-13" iyy="1.79972590513083E-05" iyz="1.56909393545273E-08" izz="1.45402322068069E-11"/>
+      <inertia ixx="1.79972735915405E-05" ixy="4.57739569311539E-16" ixz="-4.93968193674911E-13" iyy="1.79972590513083E-05" iyz="1.56909393548931E-08" izz="1.45402322064866E-11"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -48,7 +48,7 @@
   </link>
 
   <joint name="left_joint" type="continuous">
-    <origin xyz="0.169262606933294 0 0.159000000000001" rpy="1.57079632679493 -1.46387114251334 -1.57079632679493"/>
+    <origin xyz="0.105499999999999 0 0.159" rpy="1.5707963267949 0.391796412189497 -1.5707963267949"/>
     <parent link="base_link"/>
     <child link="left_link"/>
     <axis xyz="0 0 -1"/>
@@ -56,9 +56,9 @@
 
   <link name="right_link">
     <inertial>
-      <origin xyz="1.35242927967738E-11 -4.29594135376021E-07 -0.0495805946191804" rpy="0 0 0"/>
+      <origin xyz="1.35241262633201E-11 -4.29594134876421E-07 -0.0495805946191804" rpy="0 0 0"/>
       <mass value="1.59252474408208"/>
-      <inertia ixx="1.79972735915405E-05" ixy="4.57744227992749E-16" ixz="-4.93967515870296E-13" iyy="1.79972590513084E-05" iyz="1.56909393543429E-08" izz="1.45402322064589E-11"/>
+      <inertia ixx="1.79972735915405E-05" ixy="4.57743804476276E-16" ixz="-4.9396815848458E-13" iyy="1.79972590513083E-05" iyz="1.5690939354991E-08" izz="1.45402322066618E-11"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -78,22 +78,17 @@
   </link>
 
   <joint name="right_joint" type="continuous">
-    <origin xyz="-0.091737393066708 0 0.159" rpy="-1.57079632679489 0.3917964121895 -1.5707963267949"/>
+    <origin xyz="-0.10550000000006 0 0.159000000000006" rpy="1.57079632679489 -0.391796412189497 1.5707963267949"/>
     <parent link="base_link"/>
     <child link="right_link"/>
     <axis xyz="0 0 1"/>
   </joint>
 
-  <!-- <link name="cam_link"> <inertial> <origin xyz="0.00168231651076461 2.48038252426142E-06 -0.0132722903666884" rpy="0 0 0"/> <mass value="0.0381911731303585"/> <inertia ixx="1.55475074292167E-06" ixy="2.08746633007501E-08"
-  ixz="1.15473123017191E-07" iyy="2.60087936743124E-06" iyz="2.59815333318166E-08" izz="1.11202513930202E-06"/> </inertial> <visual> <origin xyz="0 0 0" rpy="0 0 0"/> <geometry> <mesh
-  filename="package://humanoid_robot_description/meshes/cam_link.STL"/> </geometry> <material name=""> <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/> </material> </visual> <collision> <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry> <mesh filename="package://humanoid_robot_description/meshes/cam_link.STL"/> </geometry> </collision> </link> -->
-
   <sensor_d435 parent="base_link">
-    <origin xyz="0.00372507443741274 -0.08 0.938" rpy="0 0 -1.57079777883574"/>
+    <origin xyz="4.75506188300778E-05 -0.0781614423708992 0.938311218159223" rpy="0 0 -1.57079777883574"/>
   </sensor_d435>
 
-  <!-- 0.00372507443741274 -0.0940970936076877 0.950672457145824 -->
-  <!-- <joint name="cam_joint" type="fixed"> <origin xyz="0.00372507443741274 -0.0940970936076877 0.950672457145824" rpy="-1.57079777883574 0 3.14159265358979"/> <parent link="base_link"/> <child link="cam_link"/> <axis xyz="0 0 0"/> </joint> -->
+  <!-- 4.75506188300778E-05 -0.0921614423708992 0.950311218159223 1.57079777883573 0 0 -->
+  <!-- <joint name="cam_joint" type="fixed"> <origin xyz="4.75506188300778E-05 -0.0921614423708992 0.950311218159223" rpy="1.57079777883573 0 0"/> <parent link="base_link"/> <child link="cam_link"/> <axis xyz="0 0 0"/> </joint> -->
 
 </robot>
