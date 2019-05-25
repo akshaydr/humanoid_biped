@@ -1,0 +1,37 @@
+<launch>
+  <arg name="gui" default="True"/>
+  <arg name="sim" default="False"/>
+  <arg name="debug" default="False"/>
+
+  <include file="$(find humanoid_robot_description)/launch/display.launch"/>
+
+  <group if="$(arg gui)">
+    <node name="rviz" pkg="rviz" required="true" type="rviz" args="-d $(find humanoid_robot_description)/config/3rd_person_robot.rviz"/>
+  </group>
+
+  <group if="$(arg debug)">
+    <node name="rqt_tf_tree" pkg="rqt_tf_tree" type="rqt_tf_tree"/>
+    <node name="rqt_graph" pkg="rqt_graph" type="rqt_graph"/>
+  </group>
+
+  <include file="$(find humanoid_robot_slam)/launch/move_base.launch"/>
+
+  <!-- Hardware sensors, if sim == true, try to connect gazebo here -->
+  <group if="$(arg sim)"></group>
+
+  <group unless="$(arg sim)">
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+      <arg name="align_depth" value="true"/>
+    </include>
+  </group>
+
+  <include file="$(find humanoid_robot_slam)/launch/rtabmap.launch">
+    <arg name="args" value="--delete_db_on_start"/>
+    <arg name="rgb_topic" value="/camera/color/image_raw"/>
+    <arg name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
+    <arg name="camera_info_topic" value="/camera/color/camera_info"/>
+    <arg name="depth_camera_info_topic" value="/camera/depth/camera_info"/>
+  </include>
+
+  <!-- <node name="tf_odom_base_link" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 odom base_link 40"/> -->
+</launch>
