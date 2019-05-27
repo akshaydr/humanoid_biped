@@ -1,12 +1,12 @@
 <launch>
   <arg name="gui" default="True"/>
-  <arg name="sim" default="False"/>
+  <arg name="sim" default="True"/>
   <arg name="debug" default="False"/>
 
   <include file="$(find humanoid_robot_description)/launch/display.launch"/>
 
   <group if="$(arg gui)">
-    <node name="rviz" pkg="rviz" required="true" type="rviz" args="-d $(find humanoid_robot_description)/config/3rd_person_robot.rviz"/>
+    <!-- <node name="rviz" pkg="rviz" required="true" type="rviz" args="-d $(find humanoid_robot_description)/config/with_sensor.rviz"/> -->
   </group>
 
   <group if="$(arg debug)">
@@ -17,7 +17,9 @@
   <include file="$(find humanoid_robot_slam)/launch/move_base.launch"/>
 
   <!-- Hardware sensors, if sim == true, try to connect gazebo here -->
-  <group if="$(arg sim)"></group>
+  <group if="$(arg sim)">
+    <node pkg="rosbag" type="play" name="player" output="screen" args="--clock /home/ajit2/my_bagfile_1.bag"/>
+  </group>
 
   <group unless="$(arg sim)">
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
@@ -32,6 +34,4 @@
     <arg name="camera_info_topic" value="/camera/color/camera_info"/>
     <arg name="depth_camera_info_topic" value="/camera/depth/camera_info"/>
   </include>
-
-  <!-- <node name="tf_odom_base_link" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 odom base_link 40"/> -->
 </launch>

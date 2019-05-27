@@ -10,7 +10,7 @@
 
   <!-- Choose visualization -->
   <arg name="rtabmapviz" default="false"/>
-  <arg name="rviz" default="false"/>
+  <arg name="rviz" default="true"/>
 
   <!-- Localization-only mode -->
   <arg name="localization" default="true"/>
@@ -196,6 +196,8 @@
           <param name="guess_frame_id" type="string" value="$(arg odom_guess_frame_id)"/>
           <param name="guess_min_translation" type="double" value="$(arg odom_guess_min_translation)"/>
           <param name="guess_min_rotation" type="double" value="$(arg odom_guess_min_rotation)"/>
+
+          <param name="initial_pose" type="string" value="0 0 0 0 0 0"/>
         </node>
 
         <!-- Stereo Odometry -->
@@ -289,7 +291,7 @@
       <remap from="odom" to="$(arg odom_topic)"/>
 
       <!-- localization mode -->
-      <param if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+      <param if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/>
     </node>

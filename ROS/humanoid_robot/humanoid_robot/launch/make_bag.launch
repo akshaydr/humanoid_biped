@@ -1,0 +1,12 @@
+<launch>
+  <arg name="gui" default="True"/>
+  <arg name="sim" default="False"/>
+  <group unless="$(arg sim)">
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+      <arg name="align_depth" value="true"/>
+    </include>
+  </group>
+
+  <!-- <node pkg="rosbag" type="record" name="rosbag" output="screen" args="record -o /camera/color/image_raw /camera/aligned_depth_to_color/image_raw /camera/color/camera_info /camera/depth/camera_info"/> -->
+
+</launch>
