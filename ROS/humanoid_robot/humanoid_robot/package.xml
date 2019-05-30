@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <package format="2">
   <name>humanoid_robot</name>
   <version>0.0.0</version>
@@ -51,13 +50,10 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>humanoid_robot_base</build_depend>
   <build_depend>humanoid_robot_description</build_depend>
-  <build_depend>humanoid_robot_simulation</build_depend>
   <build_export_depend>humanoid_robot_base</build_export_depend>
   <build_export_depend>humanoid_robot_description</build_export_depend>
-  <build_export_depend>humanoid_robot_simulation</build_export_depend>
   <exec_depend>humanoid_robot_base</exec_depend>
   <exec_depend>humanoid_robot_description</exec_depend>
-  <exec_depend>humanoid_robot_simulation</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

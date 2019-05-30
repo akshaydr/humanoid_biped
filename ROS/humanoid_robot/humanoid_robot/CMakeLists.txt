@@ -10,7 +10,6 @@ project(humanoid_robot)
 find_package(catkin REQUIRED COMPONENTS
   humanoid_robot_base
   humanoid_robot_description
-  humanoid_robot_simulation
 )
 
 ## System dependencies are found with CMake's conventions
