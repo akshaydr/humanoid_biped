@@ -1,7 +1,9 @@
 <launch>
   <arg name="gui" default="True"/>
-  <arg name="sim" default="True"/>
-  <arg name="debug" default="True"/>
+  <arg name="sim" default="False"/>
+  <arg name="debug" default="False"/>
+  <!-- <arg name="bag_file" default="/home/akshay/my_bagfile_1.bag"/> -->
+  <arg name="bag_file" default="/home/ajit2/my_bagfile_1.bag"/>
 
   <include file="$(find humanoid_robot_description)/launch/display.launch"/>
 
@@ -18,8 +20,8 @@
 
   <!-- Hardware sensors, if sim == true, try to connect gazebo here -->
   <group if="$(arg sim)">
-    <node pkg="rosbag" type="play" name="player" args="--clock --keep-alive /home/akshay/my_bagfile_1.bag"/>
-    <param name="use_sim_time" value="true" />
+    <node pkg="rosbag" type="play" name="player" args="--clock --keep-alive $(arg bag_file)"/>
+    <param name="use_sim_time" value="true"/>
   </group>
 
   <group unless="$(arg sim)">
