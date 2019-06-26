@@ -1,5 +1,6 @@
-## Tasks to be performed by the robot
+## Tasks to be performed
+Defining the tasks would give us a clear picture and the flow of the program 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg4NzIyOTA2XX0=
+eyJoaXN0b3J5IjpbNTc2NTY4MzI5XX0=
 -->
