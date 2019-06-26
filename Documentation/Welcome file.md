@@ -1,5 +1,5 @@
 # Introduction
-This documentation contains the overall workflow of the Humanoid project. This can act as a guide to start any robotics project. This guide would give faster and better results in completing any robotic project. The following checklist will guide you through any robotic project.
+This documentation contains the overall workflow of the Humanoid project. This can act as a guide to start any robotics project using Robot Operating System. This guide would give faster and better results in completing any robotic project. The following checklist will guide you through any robotic project.
 
  1. Defining the objective of the robot
  2. Listing down all the tasks a robot should perform 
@@ -13,5 +13,5 @@ This documentation contains the overall workflow of the Humanoid project. This c
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNDc3NzMzNF19
+eyJoaXN0b3J5IjpbMTk4NzM3MTcxNl19
 -->
