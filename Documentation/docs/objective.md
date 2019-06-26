@@ -1,5 +1,5 @@
 ## Objective	
-For any project, defining the objective or problem statement is the first step. This will help in 
+For any project, defining the objective or problem statement is the first step. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0NzMyMjk3N119
+eyJoaXN0b3J5IjpbLTg0OTk4MDE1MV19
 -->
