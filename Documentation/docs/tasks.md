@@ -1,6 +1,6 @@
 ## Tasks to be performed
-Defining the tasks would give us a clear picture and the flow of the program 
+Defining the tasks would give us a clear picture of all the packages, softwares and hardwares required to complete this project. This is considered as the main section  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc2NTY4MzI5XX0=
+eyJoaXN0b3J5IjpbNDk2MzI2MzRdfQ==
 -->
