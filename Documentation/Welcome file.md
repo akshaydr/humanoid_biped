@@ -14,12 +14,12 @@ The following checklist will guide you through any robotic project using ROS:
  7. Selecting actuators and sensor
  8. Selecting controller
 
-Click on each section to navigate to detailed explaination. 
+Click on each section to navigate for detailed explaination. 
 
 
 
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMyNTMwMjEwXX0=
+eyJoaXN0b3J5IjpbLTQ4OTY0Mzc3NF19
 -->
