@@ -1,7 +1,5 @@
+## Tasks to be performed by the robot
 
-
-
-> Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbNjg4NzIyOTA2XX0=
 -->
