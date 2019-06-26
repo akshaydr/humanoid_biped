@@ -1,5 +1,5 @@
 ## Objective	
-For any project, defining the objective or also can be called as problem statement is the first step. This will help in lknj 
+For any project, defining the objective or problem statement is the first step. This will help in 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODAwOTQ5OTNdfQ==
+eyJoaXN0b3J5IjpbMjA0NzMyMjk3N119
 -->
