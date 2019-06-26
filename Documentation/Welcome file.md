@@ -6,12 +6,12 @@ This documentation contains the overall workflow of the Humanoid project. This c
  3. Actuators and Sensor selection
  4. Controller selection
  5. Drawing a rough flowchart of the entire system
- 6. Listing down nodes and topics required
- 7. Listing down services and actions
- 8.   
+ 6. Finding packages and wrappers to perform certain tasks 
+ 7. Listing down nodes and topics required
+ 8. Listing down services and actions
 
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMjIwMjM3M119
+eyJoaXN0b3J5IjpbLTMyNDc3NzMzNF19
 -->
