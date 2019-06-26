@@ -8,11 +8,11 @@ The following checklist will guide you through any robotic project using ROS:
 1. [Defining the objective of the robot](Documentation/objective.md)
 2. [Listing down all the tasks a robot should perform](Documentation/tasks.md)
  3. [Drawing a rough flowchart of the entire system](Documentation/flowchart.md)
- 4. [Finding packages and wrappers to perform certain tasks](Documentation/pack_e.md)
- 5. [Listing down nodes and topics required]
- 6. [Listing down services and actions]
- 7. [Selecting actuators and sensor]
- 8. [Selecting controller]
+ 4. [Finding packages and wrappers to perform certain tasks](Documentation/pack_wrap.md)
+ 5. [Listing down nodes and topics required](Documentation/nodes.md)
+ 6. [Listing down services and actions](Documentation/services.md)
+ 7. [Selecting actuators and sensor](Documentation/actuators.md)
+ 8. [Selecting controller](Documentation/controller.md)
 
 Click on each section to navigate for detailed explaination. 
 
@@ -21,5 +21,5 @@ Click on each section to navigate for detailed explaination.
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MDQ3NDE0XX0=
+eyJoaXN0b3J5IjpbMTc3NTcyMjEwOF19
 -->
