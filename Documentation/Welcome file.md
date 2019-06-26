@@ -7,7 +7,7 @@ Robot Operating System, is an open source framework for getting robots to do thi
 The following checklist will guide you through any robotic project using ROS:
  1. Defining the objective of the robot
  2. Listing down all the tasks a robot should perform 
- 3. Actuators and Sensor selection
+ 3. Selecting Actuators and Sensor
  4. Controller selection
  5. Drawing a rough flowchart of the entire system
  6. Finding packages and wrappers to perform certain tasks 
@@ -17,5 +17,5 @@ The following checklist will guide you through any robotic project using ROS:
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwMzQ2MDA3XX0=
+eyJoaXN0b3J5IjpbMTU5MjEzNjA2OV19
 -->
