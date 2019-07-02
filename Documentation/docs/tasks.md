@@ -5,12 +5,15 @@ The following are the tasks to be peroformed by the humanoid robot:
 
  1. Take voice commands from the user
  2. Identify objects around the robot
- 3. Move around the place and remember the area
- 4. Go 
- 5. Show facial expressions
- 6. 
+ 3. Move around the place
+ 4. Remember the surrounding environment
+ 5. Go to specific position in the surrounding area
+ 6. Do hand gestures
+ 7. Follow a person
+ 8. Show facial expressions
+ 9. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM1NDY3MTQsMTkyNDg3NzE2NywyMTgwNj
-c1MjJdfQ==
+eyJoaXN0b3J5IjpbLTc5NTEzNzMwMSwxOTI0ODc3MTY3LDIxOD
+A2NzUyMl19
 -->
