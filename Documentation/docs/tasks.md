@@ -12,8 +12,11 @@ The following are the tasks to be peroformed by the humanoid robot:
  7. Hand gestures
  8. Person tracking and following 
  9. Facial expressions
- 10. Talk 
+ 10. Talk
+
+ 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MTUxMDU3NiwtNzMyMDE2MDk3LC02MT
-Y5NzA5NTMsMTkyNDg3NzE2NywyMTgwNjc1MjJdfQ==
+eyJoaXN0b3J5IjpbLTE3MjQ4NjI3NjQsMTY3MTUxMDU3NiwtNz
+MyMDE2MDk3LC02MTY5NzA5NTMsMTkyNDg3NzE2NywyMTgwNjc1
+MjJdfQ==
 -->
