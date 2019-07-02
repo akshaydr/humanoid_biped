@@ -15,12 +15,9 @@ The following checklist will guide you through any robotic project using ROS:
  8. [Selecting controller](docs/controller.md)
 
 Click on each section to navigate for the detailed explanation. 
-
-
-
  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4MTY1NTIzLDE4MDY4OTQxMCwtMTIzMT
-AyNTI2XX0=
+eyJoaXN0b3J5IjpbLTEzMjcxMTMzNTMsMTgwNjg5NDEwLC0xMj
+MxMDI1MjZdfQ==
 -->
