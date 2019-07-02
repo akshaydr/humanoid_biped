@@ -9,11 +9,9 @@ The following are the tasks to be peroformed by the humanoid robot:
  4. Remember the surrounding environment
  5. Go to specific position in the surrounding area
  6. Do hand gestures
- 7. Follow a person
+ 7. Person tracking and following 
  8. Show facial expressions
- 9. 
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NTEzNzMwMSwxOTI0ODc3MTY3LDIxOD
+eyJoaXN0b3J5IjpbLTYxNjk3MDk1MywxOTI0ODc3MTY3LDIxOD
 A2NzUyMl19
 -->
