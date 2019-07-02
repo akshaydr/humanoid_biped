@@ -8,10 +8,10 @@ The following are the tasks to be peroformed by the humanoid robot:
  3. Move around the place
  4. Remember the surrounding environment
  5. Go to specific position in the surrounding area
- 6. H
+ 6. Hand gestures
  7. Person tracking and following 
- 8. Show facial expressions
+ 8. Facial expressions
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NDgxNTQ0MSwtNjE2OTcwOTUzLDE5Mj
+eyJoaXN0b3J5IjpbLTczMjAxNjA5NywtNjE2OTcwOTUzLDE5Mj
 Q4NzcxNjcsMjE4MDY3NTIyXX0=
 -->
