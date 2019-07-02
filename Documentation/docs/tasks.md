@@ -3,15 +3,17 @@ Defining the tasks would give us a clear picture of all the packages, software a
 
 The following are the tasks to be peroformed by the humanoid robot:
 
- 1. Take voice commands from the user
- 2. Identify objects around the robot
- 3. Move around the place
- 4. Remember the surrounding environment
- 5. Go to specific position in the surrounding area
- 6. Hand gestures
- 7. Person tracking and following 
- 8. Facial expressions
+ 1. Voice recognition
+ 2. Object identification
+ 3. Legged locomotion
+ 4. Wheeled Locomotion
+ 5. Localization and Mapping
+ 6. Navigation
+ 7. Hand gestures
+ 8. Person tracking and following 
+ 9. Facial expressions
+ 10. Talk 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczMjAxNjA5NywtNjE2OTcwOTUzLDE5Mj
-Q4NzcxNjcsMjE4MDY3NTIyXX0=
+eyJoaXN0b3J5IjpbMTY3MTUxMDU3NiwtNzMyMDE2MDk3LC02MT
+Y5NzA5NTMsMTkyNDg3NzE2NywyMTgwNjc1MjJdfQ==
 -->
