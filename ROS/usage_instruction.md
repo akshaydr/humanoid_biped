@@ -35,10 +35,15 @@ The following are the important code snippets which helps in understanding the w
 Remember this is just the code snippet which includes only lines which are to be explained. For full code, navigate to the respective link which is given above. This is a launch file which will run all the launch files, nodes and packages to start SLAM.
 The first three lines are arguments of type boolean. 
 
-```python
+
+```xml
 <arg name="gui" default="True"/>
+<arg name="sim" default="False"/>
+<arg name="debug" default="False"/>
 ```  
-If variable gui is true, then all the simulation softwares like rviz and gazebo will launch. This should be kept true to visualize the map or debug the system.  
+If `gui` is true, then all the simulation softwares like rviz and gazebo will launch. This should be kept true to visualize the map or debug the system.  
+`sim` is used to either enable or disable simulation. Ususally, any robot is tested either on the hardware or in the simulation software. When running a simulstion, keep `sim` as true to use recorded bag file instead of the actual sensor. When running on the hardware, keep `sim` to false to take data from the realtime sensor. 
+Putting `debug` to true will start `rqt_graph` and `rqt_tf_tree` during the runtime. This will help in easy debug of the entire system. 
 
 
 
