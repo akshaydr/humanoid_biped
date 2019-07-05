@@ -88,4 +88,11 @@ he robot from one place to another.
 ```
 These are the transformations which are to be modified based on the robot configuration. `frame_id` is the robot's base, `odom_frame_id` is the odometry from the wheels of the robot and `map_frame_id` is the map tf obtained from rtabmap.
 
- 
+## Running the SLAM
+Now that we've got everything set up, we can run the SLAM. To do this we'll need one terminal on the robot. In a terminal, we'll launch the `robot.launch` file that we just created.
+
+Terminal 1:
+```
+rorun humanoid_robot robot.launch
+```
+This will automatically launch everything that is required for initializing SLAM.
