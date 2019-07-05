@@ -1,4 +1,4 @@
-## Usage Instructions
+# Usage Instructions
 The ROS folder contains all the codes required to run SLAM and also perform Hand gestures. There are three folders in this such as,
 
 1. [humanoid_robot](humanoid_robot/) which contains SLAM codes
@@ -10,9 +10,10 @@ The camera used in this project is [Intel Realsense D435i.](https://www.intelrea
 
 We have used ROS packages to perform simultaneous localization and mapping (SLAM) in our project. [Rtabmap](http://wiki.ros.org/rtabmap_ros) is used for 3D mapping. There are many other 3D mapping packages but this package gave better and stable results in generating clear 3D map of the place.  
 
+### Main launch files explained
 The following are the important code snippets which helps in understanding the working easily.
 
-1. The [code snippet](humanoid_robot/humanoid_robot/launch/robot.launch) which will run all the packages to perform SLAM.
+1. The [robot.launch](humanoid_robot/humanoid_robot/launch/robot.launch) file which will run all the packages to perform SLAM.
 ```xml {.line-numbers}
 <launch>
 <arg name="gui" default="True"/>
@@ -55,4 +56,36 @@ These three files will run three important parts of SLAM which are,
 * `move_base.launch` provides a ROS interface for configuring, running, and interacting with the navigation stack on a robot.
 *  `rtabmap.launch` will setup mapping parameters and also get date from the camera.
 
-Note: Go through [rtabmap](http://wiki.ros.org/rtabmap_ros) and [navigation stack](http://wiki.ros.org/navigation/Tutorials/RobotSetup) tutorials to better understand the overall process.
+Note: Go through [rtabmap](http://wiki.ros.org/rtabmap_ros) and [navigation stack](http://wiki.ros.org/navigation/Tutorials/RobotSetup) tutorials to better understand the overall flow.
+
+2. The [move_base.launch](humanoid_robot/humanoid_robot_slam/launch/move_base.launch) which is responsible for moving the robot from one place to another.
+```xml {.line-numbers}
+<launch>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find humanoid_robot_slam)/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find humanoid_robot_slam)/config/base_local_planner_params.yaml" command="load"/>
+    <remap from="/odom" to="/rtabmap/odom"/>
+    <remap from="/map" to="/rtabmap/proj_map"/>
+    <param name="use_sim_time" value="true" />
+     <param name="initial_pose_x" value="0.0"/>
+     <param name="initial_pose_y" value="0.0"/>
+     <param name="initial_pose_a" value="0.0"/>
+  </node>
+</launch>
+```
+In order to perform SLAM, the first stage is to setup [navigation stack](http://wiki.ros.org/navigation/Tutorials/RobotSetup) for our own robot. Check the link for detailed explanation of robot setup. Once this is done, we need to setup a mapping package based on our requirement and type of camera used. 
+
+3. The [rtabmap.launch](humanoid_robot/humanoid_robot_slam/launch/rtabmap.launch) will setup the mapping parameters. Few changes which are to be made is shown in below code snippet.
+he robot from one place to another.
+
+```xml {.line-numbers}
+  <arg name="frame_id" default="base_link"/>
+  <arg name="odom_frame_id" default="odom"/>
+  <arg name="map_frame_id" default="map"/>
+```
+These are the transformations which are to be modified based on the robot configuration. `frame_id` is the robot's base, `odom_frame_id` is the odometry from the wheels of the robot and `map_frame_id` is the map tf obtained from rtabmap.
+
+ 
